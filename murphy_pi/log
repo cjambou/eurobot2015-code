@@ -1,0 +1,494 @@
+duino] appel trigger Constructeur_pile : 1
+[arduino]  
+[arduino] TRANSISTION FORCEE -> Constructeur_pile: 1
+[arduino] ACTUAL STATE -> Constructeur_pile : 0
+[arduino] nombre elements : 0
+[arduino] # ASC_DROITE_PINCE_OUVERTE
+[Master] etat ascenseur droite, pince ouverte
+stands escalier : avance sur 1er stand
+[arduino] NEW STATE -> Constructeur de pile: 1
+[arduino] ETAT_PILE_PREP_SAISIE  
+[arduino] 
+[arduino] appel trigger Constructeur_pile : 0
+[arduino]  
+[arduino] TRANSITION AUTO (time out) -> Constructeur_pile: 0
+[arduino] ACTUAL STATE -> Constructeur_pile : 1
+[arduino] nombre elements : 0
+[arduino] BFAvance
+[arduino]  120 0BF avance, point a rejoindre : -847 1664 89.95
+[arduino] LAST ERROR
+[arduino] -138.81
+[arduino] INC BLOC COUNT 0.21
+[arduino] INC BLOC COUNT 0.54
+[arduino] INC BLOC COUNT 1.17
+[arduino] INC BLOC COUNT 1.74
+[arduino] INC BLOC COUNT 1.87
+[arduino] INC BLOC COUNT 2.50
+[arduino] INC BLOC COUNT 3.19
+[arduino] LAST ERROR
+[arduino] 0.12
+[arduino] * COORD -819 1542 -263.80
+compris : x : -819 y : 1542 cap : -263
+[Master] REAL COORD : -8.2e+02 1.5e+03 -263
+[arduino] theorique-847 1664 89.95
+[arduino] # SLAVE_NEAR
+[Master] etat asserv, proche
+[arduino] INC BLOC COUNT 3.95
+[arduino] INC BLOC COUNT 4.87
+[arduino] INC BLOC COUNT 4.99
+[arduino] INC BLOC COUNT 4.02
+[arduino] INC BLOC COUNT 2.81
+[arduino] INC BLOC COUNT 1.44
+[arduino] INC BLOC COUNT 0.08
+[arduino] INC BLOC COUNT 1.39
+[arduino] INC BLOC COUNT 2.42
+[arduino] INC BLOC COUNT 3.41
+[arduino] INC BLOC COUNT 4.37
+[arduino] INC BLOC COUNT 4.24
+[arduino] INC BLOC COUNT 4.95
+[arduino] INC BLOC COUNT 4.65
+[arduino] INC BLOC COUNT 4.57
+[arduino] * COORD -826 1620 -274.29
+compris : x : -826 y : 1620 cap : -274
+[Master] REAL COORD : -8.3e+02 1.6e+03 -274
+[arduino] theorique-847 1664 89.95
+[arduino] # SLAVE_AFINI
+[Master] etat asserv, fini
+stands escalier : chope stand 1
+[arduino] attrappe le stand manuel
+[arduino] 
+[arduino] appel trigger Constructeur_pile : 3
+[arduino]  
+[arduino] TRANSISTION FORCEE -> Constructeur_pile: 3
+[arduino] ACTUAL STATE -> Constructeur_pile : 1
+[arduino] nombre elements : 0
+[arduino] NEW STATE -> Constructeur de pile: 2
+[arduino] ETAT_PILE_PRISE  
+[arduino] 
+[arduino] appel trigger Constructeur_pile : 0
+[arduino]  
+[arduino] TRANSITION AUTO (time out) -> Constructeur_pile: 0
+[arduino] ACTUAL STATE -> Constructeur_pile : 2
+[arduino] nombre elements : 0
+[arduino] NEW STATE -> Constructeur de pile: 222
+[arduino] ETAT_PILE_PRISE_SEC  
+[arduino] 
+[arduino] appel trigger Constructeur_pile : 0
+[arduino]  
+[arduino] TRANSITION AUTO (time out) -> Constructeur_pile: 0
+[arduino] ACTUAL STATE -> Constructeur_pile : 222
+[arduino] nombre elements : 0
+[arduino] NEW STATE -> Constructeur de pile: 3
+[arduino] ETAT_PILE_ANALYSE  
+[arduino] 
+[arduino] appel trigger Constructeur_pile : 0
+[arduino]  
+[arduino] TRANSITION AUTO (time out) -> Constructeur_pile: 0
+[arduino] ACTUAL STATE -> Constructeur_pile : 3
+[arduino] nombre elements : 0
+[arduino] # ASC_DROITE_BREDOUILLE
+[Master] etat ascenseur droite, bredouille !
+stands escalier : re-ouverture de pince
+[arduino] NEW STATE -> Constructeur de pile: 0
+[arduino] ETAT_PILE_INITIAL 
+[arduino] ASS FINI : bumper haut atteint
+[arduino] 
+[arduino] appel trigger Constructeur_pile : 7
+[arduino]  
+[arduino] TRANSITION AUTO (ass fini) -> Constructeur_pile: 7
+[arduino] ACTUAL STATE -> Constructeur_pile : 0
+[arduino] nombre elements : 0
+[arduino] preparer prise
+[arduino] 
+[arduino] appel trigger Constructeur_pile : 1
+[arduino]  
+[arduino] TRANSISTION FORCEE -> Constructeur_pile: 1
+[arduino] ACTUAL STATE -> Constructeur_pile : 0
+[arduino] nombre elements : 0
+[arduino] # ASC_DROITE_PINCE_OUVERTE
+[Master] etat ascenseur droite, pince ouverte
+stands escalier : BF avance sur 2nd stand
+[arduino] NEW STATE -> Constructeur de pile: 1
+[arduino] ETAT_PILE_PREP_SAISIE  
+[arduino] 
+[arduino] appel trigger Constructeur_pile : 0
+[arduino]  
+[arduino] TRANSITION AUTO (time out) -> Constructeur_pile: 0
+[arduino] ACTUAL STATE -> Constructeur_pile : 1
+[arduino] nombre elements : 0
+[arduino] BFAvance
+[arduino]  120 0BF avance, point a rejoindre : -847 1784 89.95
+[arduino] LAST ERROR
+[arduino] -136.53
+[arduino] INC BLOC COUNT 1.90
+[arduino] INC BLOC COUNT 0.80
+[arduino] INC BLOC COUNT 0.10
+[arduino] INC BLOC COUNT 0.73
+[arduino] INC BLOC COUNT 1.56
+[arduino] INC BLOC COUNT 1.75
+[arduino] INC BLOC COUNT 2.67
+[arduino] INC BLOC COUNT 3.45
+[arduino] INC BLOC COUNT 3.99
+[arduino] INC BLOC COUNT 4.77
+[arduino] INC BLOC COUNT 4.79
+[arduino] LAST ERROR
+[arduino] 0.13
+[arduino] * COORD -823 1674 -265.25
+compris : x : -823 y : 1674 cap : -265
+[Master] REAL COORD : -8.2e+02 1.7e+03 -265
+[arduino] theorique-847 1784 89.95
+[arduino] # SLAVE_NEAR
+[Master] etat asserv, proche
+[arduino] INC BLOC COUNT 4.44
+[arduino] INC BLOC COUNT 3.11
+[arduino] INC BLOC COUNT 1.51
+[arduino] INC BLOC COUNT 0.13
+[arduino] INC BLOC COUNT 1.67
+[arduino] INC BLOC COUNT 2.22
+[arduino] INC BLOC COUNT 3.27
+[arduino] INC BLOC COUNT 4.27
+[arduino] INC BLOC COUNT 4.96
+[arduino] INC BLOC COUNT 4.24
+[arduino] * COORD -832 1758 -274.45
+compris : x : -832 y : 1758 cap : -274
+[Master] REAL COORD : -8.3e+02 1.8e+03 -274
+[arduino] theorique-847 1784 89.95
+[arduino] # SLAVE_AFINI
+[Master] etat asserv, fini
+stands escalier : chope second stand
+[arduino] attrappe le stand manuel
+[arduino] 
+[arduino] appel trigger Constructeur_pile : 3
+[arduino]  
+[arduino] TRANSISTION FORCEE -> Constructeur_pile: 3
+[arduino] ACTUAL STATE -> Constructeur_pile : 1
+[arduino] nombre elements : 0
+[arduino] NEW STATE -> Constructeur de pile: 2
+[arduino] ETAT_PILE_PRISE  
+[arduino] 
+[arduino] appel trigger Constructeur_pile : 0
+[arduino]  
+[arduino] TRANSITION AUTO (time out) -> Constructeur_pile: 0
+[arduino] ACTUAL STATE -> Constructeur_pile : 2
+[arduino] nombre elements : 0
+[arduino] NEW STATE -> Constructeur de pile: 222
+[arduino] ETAT_PILE_PRISE_SEC  
+[arduino] 
+[arduino] appel trigger Constructeur_pile : 0
+[arduino]  
+[arduino] TRANSITION AUTO (time out) -> Constructeur_pile: 0
+[arduino] ACTUAL STATE -> Constructeur_pile : 222
+[arduino] nombre elements : 0
+[arduino] NEW STATE -> Constructeur de pile: 3
+[arduino] ETAT_PILE_ANALYSE  
+[arduino] 
+[arduino] appel trigger Constructeur_pile : 0
+[arduino]  
+[arduino] TRANSITION AUTO (time out) -> Constructeur_pile: 0
+[arduino] ACTUAL STATE -> Constructeur_pile : 3
+[arduino] nombre elements : 0
+[arduino] # ASC_DROITE_BREDOUILLE
+[Master] etat ascenseur droite, bredouille !
+stands escalier : recule/degage de la zone
+[arduino] NEW STATE -> Constructeur de pile: 0
+[arduino] ETAT_PILE_INITIAL 
+[arduino] ASS FINI : bumper haut atteint
+[arduino] 
+[arduino] appel trigger Constructeur_pile : 7
+[arduino]  
+[arduino] TRANSITION AUTO (ass fini) -> Constructeur_pile: 7
+[arduino] ACTUAL STATE -> Constructeur_pile : 0
+[arduino] nombre elements : 0
+[arduino] BFAvance
+[arduino]  -400 0BF avance, point a rejoindre : -848 1384 89.95
+[arduino] INC BLOC COUNT 2.46
+[arduino] INC BLOC COUNT 2.12
+[arduino] INC BLOC COUNT 1.88
+[arduino] INC BLOC COUNT 1.84
+[arduino] INC BLOC COUNT 1.55
+[arduino] INC BLOC COUNT 1.48
+[arduino] INC BLOC COUNT 1.56
+[arduino] INC BLOC COUNT 1.48
+[arduino] INC BLOC COUNT 1.43
+[arduino] INC BLOC COUNT 1.26
+[arduino] INC BLOC COUNT 1.54
+[arduino] LAST ERROR
+[arduino] 196.71
+[arduino] LAST ERROR
+[arduino] 0.08
+[arduino] * COORD -873 1598 -287.43
+compris : x : -873 y : 1598 cap : -287
+[Master] REAL COORD : -8.7e+02 1.6e+03 -287
+[arduino] theorique-848 1384 89.95
+[arduino] # SLAVE_NEAR
+[Master] etat asserv, proche
+[arduino] * COORD -885 1430 -272.70
+compris : x : -885 y : 1430 cap : -272
+[Master] REAL COORD : -8.8e+02 1.4e+03 -272
+[arduino] theorique-848 1384 89.95
+[arduino] # SLAVE_AFINI
+[Master] etat asserv, fini
+capture de stand bordure
+stands bodure : orientation sur cible
+[arduino] SET CAP :BFCap 132
+[arduino] INC BLOC COUNT 0.02
+[arduino] INC BLOC COUNT 0.91
+[arduino] INC BLOC COUNT 1.56
+[arduino] INC BLOC COUNT 2.54
+[arduino] INC BLOC COUNT 3.23
+[arduino] INC BLOC COUNT 3.84
+[arduino] INC BLOC COUNT 4.40
+[arduino] INC BLOC COUNT 4.53
+[arduino] INC BLOC COUNT 4.88
+[arduino] LAST ERROR
+[arduino] 0.13
+[arduino] * COORD -886 1404 -235.60
+compris : x : -886 y : 1404 cap : -235
+[Master] REAL COORD : -8.9e+02 1.4e+03 -235
+[arduino] theorique-848 1384 132.00
+[arduino] # SLAVE_NEAR
+[Master] etat asserv, proche
+[arduino] * COORD -884 1402 -225.89
+compris : x : -884 y : 1402 cap : -225
+[Master] REAL COORD : -8.8e+02 1.4e+03 -225
+[arduino] theorique-848 1384 132.00
+[arduino] # SLAVE_AFINI
+[Master] etat asserv, fini
+stands bordure : BF droite sur cible
+[arduino] BFDroite -1174 1544 90
+[arduino] BF droite, point a rejoindre : -1174 1544 89.95
+[arduino] INC BLOC COUNT 1.24
+[arduino] INC BLOC COUNT 0.87
+[arduino] INC BLOC COUNT 0.61
+[arduino] INC BLOC COUNT 0.82
+[arduino] INC BLOC COUNT 1.23
+[arduino] INC BLOC COUNT 1.52
+[arduino] INC BLOC COUNT 1.99
+[arduino] INC BLOC COUNT 2.44
+[arduino] INC BLOC COUNT 2.63
+[arduino] INC BLOC COUNT 3.16
+[arduino] INC BLOC COUNT 3.53
+[arduino] INC BLOC COUNT 3.92
+[arduino] INC BLOC COUNT 4.45
+[arduino] INC BLOC COUNT 4.43
+[arduino] INC BLOC COUNT 4.94
+[arduino] LAST ERROR
+[arduino] -192.13
+[arduino] LAST ERROR
+[arduino] 0.06
+[arduino] * COORD -1019 1448 -168.59
+compris : x : -1019 y : 1448 cap : -168
+[Master] REAL COORD : -1e+03 1.4e+03 -168
+[arduino] theorique-1174 1544 89.95
+[arduino] # SLAVE_NEAR
+[Master] etat asserv, proche
+[arduino] INC BLOC COUNT 4.69
+[arduino] INC BLOC COUNT 3.02
+[arduino] INC BLOC COUNT 1.45
+[arduino] INC BLOC COUNT 0.30
+[arduino] INC BLOC COUNT 1.66
+[arduino] INC BLOC COUNT 2.35
+[arduino] INC BLOC COUNT 3.62
+[arduino] INC BLOC COUNT 4.51
+[arduino] INC BLOC COUNT 3.81
+[arduino] INC BLOC COUNT 2.40
+[arduino] INC BLOC COUNT 1.16
+[arduino] INC BLOC COUNT 0.28
+[arduino] INC BLOC COUNT 0.33
+[arduino] INC BLOC COUNT 1.02
+[arduino] INC BLOC COUNT 1.77
+[arduino] INC BLOC COUNT 2.29
+[arduino] INC BLOC COUNT 2.66
+[arduino] * COORD -1208 1545 -270.15
+compris : x : -1208 y : 1545 cap : -270
+[Master] REAL COORD : -1.2e+03 1.5e+03 -270
+[arduino] theorique-1174 1544 89.95
+[arduino] # SLAVE_AFINI
+[Master] etat asserv, fini
+stands bordure : ouverture de pince
+[arduino] preparer prise
+[arduino] 
+[arduino] appel trigger Constructeur_pile : 1
+[arduino]  
+[arduino] TRANSISTION FORCEE -> Constructeur_pile: 1
+[arduino] ACTUAL STATE -> Constructeur_pile : 0
+[arduino] nombre elements : 0
+[arduino] # ASC_GAUCHE_PINCE_OUVERTE
+[Master] etat ascenseur gauche, pince ouverte
+stands bordure : avance pour capture
+[arduino] NEW STATE -> Constructeur de pile: 1
+[arduino] ETAT_PILE_PREP_SAISIE  
+[arduino] 
+[arduino] appel trigger Constructeur_pile : 0
+[arduino]  
+[arduino] TRANSITION AUTO (time out) -> Constructeur_pile: 0
+[arduino] ACTUAL STATE -> Constructeur_pile : 1
+[arduino] nombre elements : 0
+[arduino] BFAvance
+[arduino]  120 0BF avance, point a rejoindre : -1173 1664 89.95
+[arduino] LAST ERROR
+[arduino] -118.15
+[arduino] INC BLOC COUNT 2.09
+[arduino] INC BLOC COUNT 1.46
+[arduino] INC BLOC COUNT 1.02
+[arduino] INC BLOC COUNT 0.72
+[arduino] INC BLOC COUNT 0.11
+[arduino] INC BLOC COUNT 0.45
+[arduino] INC BLOC COUNT 1.11
+[arduino] INC BLOC COUNT 1.57
+[arduino] INC BLOC COUNT 2.28
+[arduino] INC BLOC COUNT 3.05
+[arduino] INC BLOC COUNT 3.72
+[arduino] INC BLOC COUNT 4.58
+[arduino] LAST ERROR
+[arduino] -0.12
+[arduino] * COORD -1205 1570 -281.81
+compris : x : -1205 y : 1570 cap : -281
+[Master] REAL COORD : -1.2e+03 1.6e+03 -281
+[arduino] theorique-1173 1664 89.95
+[arduino] # SLAVE_NEAR
+[Master] etat asserv, proche
+[arduino] INC BLOC COUNT 4.80
+[arduino] INC BLOC COUNT 3.76
+[arduino] INC BLOC COUNT 1.43
+[arduino] * COORD -1187 1668 -266.75
+compris : x : -1187 y : 1668 cap : -266
+[Master] REAL COORD : -1.2e+03 1.7e+03 -266
+[arduino] theorique-1173 1664 89.95
+[arduino] # SLAVE_AFINI
+[Master] etat asserv, fini
+stands bordure : chope de stand
+[arduino] attrappe le stand manuel
+[arduino] 
+[arduino] appel trigger Constructeur_pile : 3
+[arduino]  
+[arduino] TRANSISTION FORCEE -> Constructeur_pile: 3
+[arduino] ACTUAL STATE -> Constructeur_pile : 1
+[arduino] nombre elements : 0
+[arduino] NEW STATE -> Constructeur de pile: 2
+[arduino] ETAT_PILE_PRISE  
+[arduino] 
+[arduino] appel trigger Constructeur_pile : 0
+[arduino]  
+[arduino] TRANSITION AUTO (time out) -> Constructeur_pile: 0
+[arduino] ACTUAL STATE -> Constructeur_pile : 2
+[arduino] nombre elements : 0
+[arduino] NEW STATE -> Constructeur de pile: 222
+[arduino] ETAT_PILE_PRISE_SEC  
+[arduino] 
+[arduino] appel trigger Constructeur_pile : 0
+[arduino]  
+[arduino] TRANSITION AUTO (time out) -> Constructeur_pile: 0
+[arduino] ACTUAL STATE -> Constructeur_pile : 222
+[arduino] nombre elements : 0
+[arduino] NEW STATE -> Constructeur de pile: 3
+[arduino] ETAT_PILE_ANALYSE  
+[arduino] 
+[arduino] appel trigger Constructeur_pile : 0
+[arduino]  
+[arduino] TRANSITION AUTO (time out) -> Constructeur_pile: 0
+[arduino] ACTUAL STATE -> Constructeur_pile : 3
+[arduino] nombre elements : 0
+[arduino] # ASC_GAUCHE_BREDOUILLE
+[Master] etat ascenseur gauche, bredouille !
+stands bordure : recule/degage de la zone
+[arduino] NEW STATE -> Constructeur de pile: 0
+[arduino] ETAT_PILE_INITIAL 
+[arduino] ASS FINI : bumper haut atteint
+[arduino] 
+[arduino] appel trigger Constructeur_pile : 7
+[arduino]  
+[arduino] TRANSITION AUTO (ass fini) -> Constructeur_pile: 7
+[arduino] ACTUAL STATE -> Constructeur_pile : 0
+[arduino] nombre elements : 0
+[arduino] BFAvance
+[arduino]  -300 0BF avance, point a rejoindre : -1174 1364 89.95
+[arduino] INC BLOC COUNT 0.71
+[arduino] INC BLOC COUNT 0.49
+[arduino] INC BLOC COUNT 0.48
+[arduino] INC BLOC COUNT 0.47
+[arduino] INC BLOC COUNT 0.72
+[arduino] INC BLOC COUNT 0.90
+[arduino] INC BLOC COUNT 1.02
+[arduino] INC BLOC COUNT 0.98
+[arduino] INC BLOC COUNT 0.95
+[arduino] INC BLOC COUNT 1.19
+[arduino] INC BLOC COUNT 1.36
+[arduino] INC BLOC COUNT 1.21
+[arduino] INC BLOC COUNT 1.37
+[arduino] INC BLOC COUNT 1.09
+[arduino] LAST ERROR
+[arduino] 198.94
+[arduino] LAST ERROR
+[arduino] -0.06
+[arduino] * COORD -1193 1566 -276.41
+compris : x : -1193 y : 1566 cap : -276
+[Master] REAL COORD : -1.2e+03 1.6e+03 -276
+[arduino] theorique-1174 1364 89.95
+[arduino] # SLAVE_NEAR
+[Master] etat asserv, proche
+[arduino] * COORD -1194 1425 -269.67
+compris : x : -1194 y : 1425 cap : -269
+[Master] REAL COORD : -1.2e+03 1.4e+03 -269
+[arduino] theorique-1174 1364 89.95
+[arduino] # SLAVE_AFINI
+[Master] etat asserv, fini
+vidage distributeur
+distrib : cap sur cible
+[arduino] SET CAP :BFCap 80
+[arduino] LAST ERROR
+[arduino] -0.13
+[arduino] * COORD -1195 1394 -272.68
+compris : x : -1195 y : 1394 cap : -272
+[Master] REAL COORD : -1.2e+03 1.4e+03 -272
+[arduino] theorique-1174 1364 80.00
+[arduino] # SLAVE_NEAR
+[Master] etat asserv, proche
+[arduino] * COORD -1195 1393 -278.72
+compris : x : -1195 y : 1393 cap : -278
+[Master] REAL COORD : -1.2e+03 1.4e+03 -278
+[arduino] theorique-1174 1364 80.00
+[arduino] # SLAVE_AFINI
+[Master] etat asserv, fini
+distrib : BF droite sur cible
+[arduino] BFDroite -1700 1050 90
+[arduino] BF droite, point a rejoindre : -1700 1050 89.95
+[arduino] INC BLOC COUNT 0.74
+[arduino] INC BLOC COUNT 0.51
+[arduino] INC BLOC COUNT 0.36
+[arduino] INC BLOC COUNT 0.38
+[arduino] INC BLOC COUNT 0.80
+[arduino] INC BLOC COUNT 1.35
+[arduino] INC BLOC COUNT 2.00
+[arduino] INC BLOC COUNT 2.19
+[arduino] INC BLOC COUNT 2.98
+[arduino] INC BLOC COUNT 3.80
+[arduino] INC BLOC COUNT 4.76
+[arduino] INC BLOC COUNT 3.73
+[arduino] INC BLOC COUNT 2.61
+[arduino] INC BLOC COUNT 1.96
+[arduino] INC BLOC COUNT 1.50
+[arduino] INC BLOC COUNT 0.79
+[arduino] INC BLOC COUNT 0.42
+[arduino] INC BLOC COUNT 0.29
+[arduino] INC BLOC COUNT 0.21
+[arduino] INC BLOC COUNT 0.14
+[arduino] INC BLOC COUNT 0.10
+[arduino] INC BLOC COUNT 0.07
+[arduino] INC BLOC COUNT 0.05
+[arduino] INC BLOC COUNT 0.03
+[arduino] INC BLOC COUNT 0.02
+[arduino] INC BLOC COUNT 0.02
+[arduino] INC BLOC COUNT 0.01
+[arduino] INC BLOC COUNT 0.01
+[arduino] INC BLOC COUNT 0.01
+[arduino] INC BLOC COUNT 0.00
+[arduino] INC BLOC COUNT 0.00
+[arduino] INC BLOC COUNT 0.00
+[arduino] * COORD -1201 1367 -292.94
+compris : x : -1201 y : 1367 cap : -292
+[Master] REAL COORD : -1.2e+03 1.4e+03 -292
+[arduino] theorique-1700 1050 89.95
+[arduino] # SLAVE_BLOCAGE
+[Master] etat asserv, blocage
+[arduino] STOP
