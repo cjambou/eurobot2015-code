@@ -32,6 +32,10 @@ Autom* slave;
 int state;
 int led_on;
 long timer;
+long timer_start;
+long timer_end;
+
+
 long TEMPS_PARTIE = 90000; //en ms mettre 90
 
 
@@ -155,11 +159,12 @@ void loop(){
     {
         state = STARTMIS;
         Serial.println("# START_IN");
+        timer_start =  millis();
     }
     else
     {
             // debut de jeu quand le start est releve
-        if (state == STARTMIS && bumper_START.is_off())
+        if (state == STARTMIS && bumper_START.is_off() && ((millis()-timer_start) > 1000 ))
         {
             state = GAME ;
             Serial.println("# START_OUT");
