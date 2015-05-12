@@ -51,8 +51,8 @@
 
 
 // norme sur les etats de transistion proche  et fini
-#define NEAR_ERROR_DEP 30//1//200
-#define DONE_ERROR_DEP  20//0//150  //
+#define NEAR_ERROR_DEP 200//1//200
+#define DONE_ERROR_DEP 100//0//150  //
 
 // gain PID cap (rotation)
 #define GAIN_KP_CAP 200  //Ku = 260
