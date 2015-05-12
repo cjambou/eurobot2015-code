@@ -347,7 +347,7 @@ void ControlLoop::compute_pids(){
 
                 if (abs(diff_cap(to_target.get_angle(), target_position.get_cap())) > PI / 2)
                 {
-                    B = 2.0
+                    B = 2.0;
                     // le cap est celui vers la cible (en marche arriere), normal :)
                     //pidcap.setTarget(to_target.get_angle() + PI);
                     alpha = -diff_cap( target_position.get_cap() ,  real_coord.get_cap() );
