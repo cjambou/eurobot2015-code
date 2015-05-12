@@ -175,7 +175,7 @@ void PID::update_pid_state()
                     arrival_count = 0;
                 }
             }
-            if (arrival_count> 8)
+            if (arrival_count> 5)
             {
                 pid_state = DONE;
             }
