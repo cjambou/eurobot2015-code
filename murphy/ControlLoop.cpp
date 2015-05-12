@@ -50,9 +50,7 @@ void ControlLoop::bf_avance(float d){
 /** definition des vitesses
 // a check sur PID
 **/
-#define MIN_MAX_SLOW 80
-#define MIN_MAX_MEDIUM 110
-#define MIN_MAX_FAST 160  // don't use it too fast
+
 void ControlLoop::set_speed(int speed)
 {
     switch(speed){

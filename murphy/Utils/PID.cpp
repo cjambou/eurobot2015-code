@@ -95,7 +95,7 @@ float PID::compute(float input){
     //Serial.print(" input ");
     //Serial.print(input);
 
-    I_sum = I_sum + Ki * error;     // integrale?
+    I_sum = I_sum + Ki * error*deltaT;     // integrale?
     //saturation of I term
     //if (I_sum > maxV){
     //    I_sum = maxV;}
@@ -109,18 +109,21 @@ float PID::compute(float input){
     //}
     float derror = error - last_error;  // derivee
     last_error = error;
-    float out = Kp * error + I_sum + Kd * derror / 0.02;  //0.04 = period du slave
+    float out = Kp * error + I_sum + Kd * derror / deltaT;  //0.04 = period du slave
 
     // check des bornes
     if (out > maxV)
-    {                               // saturation haute
+    {
+    Serial.println("SATU");                           // saturation haute
         out = maxV;
-        I_sum = I_sum - Ki * error;
+        I_sum = I_sum - Ki * error*deltaT;
     }
     else if (out < minV)             // saturation basse
     {
+
+    Serial.println("SATU");
         out = minV;
-        I_sum = I_sum - Ki * error;
+        I_sum = I_sum - Ki * error*deltaT;
     }
 
     // retourne la commande a appliquer
