@@ -114,7 +114,6 @@ float PID::compute(float input){
     // check des bornes
     if (out > maxV)
     {
-    Serial.println("SATU");                           // saturation haute
         out = maxV;
         I_sum = I_sum - Ki * error*deltaT;
     }
