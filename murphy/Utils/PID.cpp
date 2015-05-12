@@ -114,7 +114,6 @@ float PID::compute(float input){
     // check des bornes
     if (out > maxV)
     {
-    Serial.println("SATU");                           // saturation haute
         out = maxV;
         I_sum = I_sum - Ki * error*deltaT;
     }
@@ -176,7 +175,7 @@ void PID::update_pid_state()
                     arrival_count = 0;
                 }
             }
-            if (arrival_count> 8)
+            if (arrival_count> 5)
             {
                 pid_state = DONE;
             }
