@@ -187,7 +187,7 @@ void Protocole_COM::executeinstr()
         if(s.find("SLAVE_NEAR") != string::npos)
         {
             cout<<"[Master] etat asserv, proche"<<endl;
-            //master->get_gestionnaire_mission()->get_mae_murphy()->near();
+            master->get_gestionnaire_mission()->get_mae_murphy()->near();
         }
 
         // check si l'asserv est fini
