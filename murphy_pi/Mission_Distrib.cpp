@@ -15,11 +15,11 @@ void Mission_Distrib::set_couleur(int couleur_)
     couleur = couleur_;
     if(couleur == 0)
     {
-        set_coord_debut_mission(Coord(-960,999,0));
+        set_coord_debut_mission(Coord(-750,999,0));
     }
     if(couleur == 1)
     {
-        set_coord_debut_mission(Coord(960,999, 180));
+        set_coord_debut_mission(Coord(750,999, 180));
     }
 }
 
