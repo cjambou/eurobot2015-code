@@ -59,8 +59,8 @@
 #define GAIN_KI_CAP 0 //52.0 //70.0
 #define GAIN_KD_CAP 0 //18.0 //40.0
 
-#define NEAR_ERROR_CAP 800.0 * 3.14 / 180.0
-#define DONE_ERROR_CAP  400.0 * 3.14 / 180.0
+#define NEAR_ERROR_CAP 8.0 * 3.14 / 180.0
+#define DONE_ERROR_CAP  4.0 * 3.14 / 180.0
 
 // compteur blocage
 #define BLOCAGE_MAX 20
