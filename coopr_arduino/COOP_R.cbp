@@ -516,6 +516,7 @@
 					<Add directory="$(ARDUINO_DIR)/libraries" />
 					<Add directory="$(ARDUINO_DIR)/hardware/arduino/variants/mega" />
 					<Add directory="../../Program Files/CodeBlocks/include" />
+					<Add directory="../../../../../../Program Files/CodeBlocks/include" />
 				</Compiler>
 				<Linker>
 					<Add option="-mmcu=$(MCU)" />

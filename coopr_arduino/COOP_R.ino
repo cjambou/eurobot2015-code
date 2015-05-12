@@ -55,6 +55,8 @@ SwitchAnalog bumper_strategie(PIN_BUMPER_STRAT_STRAT,SEUIL_BUMPER);
 int state;
 int led_on;
 long timer;
+long timer_start;
+
 long TEMPS_PARTIE = 90000; //en ms mettre 90
 
 
@@ -141,10 +143,11 @@ void loop(){
     {
         state = STARTMIS;
         Serial.println("# START IN");
+        timer_start = millis();
     }
 
     // debut de jeu quand le start est releve
-    if (state == STARTMIS && bumper_start.is_off())
+    if (state == STARTMIS && bumper_start.is_off() && ((millis()-timer_start) > 1000 ) )
     {
         state = GAME ;
         Serial.println("# START OUT");
@@ -168,7 +171,7 @@ void loop(){
 
 
 
-   //delay(1);
+   delay(1);
 //*/
 /*
     com->run();
