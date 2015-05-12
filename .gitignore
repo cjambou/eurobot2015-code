@@ -1,5 +1,6 @@
 *.elf
 *.swp
+*.swo
 *.o
 *.hex
 *.o

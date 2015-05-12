@@ -461,7 +461,7 @@ void ControlLoop::check_blockage()
         return;
     }
 
-   if (dep.norm() < 10.0 && abs(real_coord.get_cap() - late_pos.get_cap()) < 0.05)
+   if (dep.norm() < 2.0 && abs(real_coord.get_cap() - late_pos.get_cap()) < 0.05)
    {
         count_not_moving += 1;
         Serial.print("INC BLOC COUNT ");
