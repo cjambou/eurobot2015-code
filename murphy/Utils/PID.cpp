@@ -119,8 +119,6 @@ float PID::compute(float input){
     }
     else if (out < minV)             // saturation basse
     {
-
-    Serial.println("SATU");
         out = minV;
         I_sum = I_sum - Ki * error*deltaT;
     }
