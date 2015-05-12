@@ -15,5 +15,7 @@ murphy/build-mega/*
 murphy_pi/bin/*
 coopr_pi/bin/*
 *~
+*.cbp
+*.cscope_file_list
 
 
