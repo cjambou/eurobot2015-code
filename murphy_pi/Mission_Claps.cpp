@@ -22,7 +22,7 @@ void Mission_Claps::set_couleur(int couleur_)
     }
     if(couleur == 1)
     {
-        set_coord_debut_mission(Coord(890,996, 90));
+        set_coord_debut_mission(Coord(890,996, -90));
     }
 }
 
