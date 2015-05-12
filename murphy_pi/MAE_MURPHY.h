@@ -1669,6 +1669,8 @@ class MAE_MURPHY {
                     // returns the state containing the current
                     virtual AnyState * _upper(MAE_MURPHY & stm);
 
+                    virtual bool _completion(MAE_MURPHY & stm);
+
                 };
                 
                 virtual ~mission_rush_zone_centrale_State();
@@ -2964,11 +2966,11 @@ class MAE_MURPHY {
                         // perform the 'entry behavior'
                         void _doentry(MAE_MURPHY & stm);
 
-                        // perform the 'do activity'
-                        virtual void _do(MAE_MURPHY & stm);
-
                         // returns the state containing the current
                         virtual AnyState * _upper(MAE_MURPHY & stm);
+
+                        // perform the 'exit behavior'
+                        void _doexit(MAE_MURPHY & stm);
 
                     };
                     
