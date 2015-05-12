@@ -310,9 +310,6 @@ class MAE_MURPHY {
                       public:
                         virtual ~BF_cap_to_mission_State();
 
-                        // to manage the event assFini
-                        virtual void assFini(MAE_MURPHY & stm);
-
                         // to manage the event create
                         virtual void create(MAE_MURPHY & stm);
 
@@ -321,6 +318,12 @@ class MAE_MURPHY {
 
                         // returns the state containing the current
                         virtual AnyState * _upper(MAE_MURPHY & stm);
+
+                        // to manage the event near
+                        virtual void near(MAE_MURPHY & stm);
+
+                        // to manage the event blocage
+                        virtual void blocage(MAE_MURPHY & stm);
 
                     };
                     
@@ -344,15 +347,15 @@ class MAE_MURPHY {
                         // perform the 'exit behavior'
                         void _doexit(MAE_MURPHY & stm);
 
+                        // to manage the event blocage
+                        virtual void blocage(MAE_MURPHY & stm);
+
                     };
                     
                     // implement the state BF droite to mission
                     class BF_droite_to_mission_State : public AnyState {
                       public:
                         virtual ~BF_droite_to_mission_State();
-
-                        // to manage the event assFini
-                        virtual void assFini(MAE_MURPHY & stm);
 
                         // to manage the event create
                         virtual void create(MAE_MURPHY & stm);
@@ -362,6 +365,12 @@ class MAE_MURPHY {
 
                         // returns the state containing the current
                         virtual AnyState * _upper(MAE_MURPHY & stm);
+
+                        // to manage the event near
+                        virtual void near(MAE_MURPHY & stm);
+
+                        // to manage the event blocage
+                        virtual void blocage(MAE_MURPHY & stm);
 
                     };
                     
@@ -492,9 +501,6 @@ class MAE_MURPHY {
                   public:
                     virtual ~recule_doucement_State();
 
-                    // to manage the event assFini
-                    virtual void assFini(MAE_MURPHY & stm);
-
                     // to manage the event create
                     virtual void create(MAE_MURPHY & stm);
 
@@ -506,6 +512,9 @@ class MAE_MURPHY {
 
                     // to manage the event blocage
                     virtual void blocage(MAE_MURPHY & stm);
+
+                    // to manage the event near
+                    virtual void near(MAE_MURPHY & stm);
 
                 };
                 
@@ -616,9 +625,6 @@ class MAE_MURPHY {
                       public:
                         virtual ~cap_to_mission_State();
 
-                        // to manage the event assFini
-                        virtual void assFini(MAE_MURPHY & stm);
-
                         // to manage the event create
                         virtual void create(MAE_MURPHY & stm);
 
@@ -627,6 +633,12 @@ class MAE_MURPHY {
 
                         // returns the state containing the current
                         virtual AnyState * _upper(MAE_MURPHY & stm);
+
+                        // to manage the event near
+                        virtual void near(MAE_MURPHY & stm);
+
+                        // to manage the event blocage
+                        virtual void blocage(MAE_MURPHY & stm);
 
                     };
                     
@@ -635,9 +647,6 @@ class MAE_MURPHY {
                       public:
                         virtual ~cap_mission_State();
 
-                        // to manage the event assFini
-                        virtual void assFini(MAE_MURPHY & stm);
-
                         // to manage the event create
                         virtual void create(MAE_MURPHY & stm);
 
@@ -646,6 +655,12 @@ class MAE_MURPHY {
 
                         // returns the state containing the current
                         virtual AnyState * _upper(MAE_MURPHY & stm);
+
+                        // to manage the event near
+                        virtual void near(MAE_MURPHY & stm);
+
+                        // to manage the event blocage
+                        virtual void blocage(MAE_MURPHY & stm);
 
                     };
                     
@@ -654,9 +669,6 @@ class MAE_MURPHY {
                       public:
                         virtual ~BF_droite_to_mission_State();
 
-                        // to manage the event assFini
-                        virtual void assFini(MAE_MURPHY & stm);
-
                         // to manage the event create
                         virtual void create(MAE_MURPHY & stm);
 
@@ -665,6 +677,12 @@ class MAE_MURPHY {
 
                         // returns the state containing the current
                         virtual AnyState * _upper(MAE_MURPHY & stm);
+
+                        // to manage the event near
+                        virtual void near(MAE_MURPHY & stm);
+
+                        // to manage the event blocage
+                        virtual void blocage(MAE_MURPHY & stm);
 
                     };
                     
@@ -701,9 +719,6 @@ class MAE_MURPHY {
                       public:
                         virtual ~to_escalier_State();
 
-                        // to manage the event assFini
-                        virtual void assFini(MAE_MURPHY & stm);
-
                         // to manage the event create
                         virtual void create(MAE_MURPHY & stm);
 
@@ -712,6 +727,12 @@ class MAE_MURPHY {
 
                         // returns the state containing the current
                         virtual AnyState * _upper(MAE_MURPHY & stm);
+
+                        // to manage the event near
+                        virtual void near(MAE_MURPHY & stm);
+
+                        // to manage the event blocage
+                        virtual void blocage(MAE_MURPHY & stm);
 
                     };
                     
@@ -841,9 +862,6 @@ class MAE_MURPHY {
                       public:
                         virtual ~BF_droite_sur_le_cine_State();
 
-                        // to manage the event assFini
-                        virtual void assFini(MAE_MURPHY & stm);
-
                         // to manage the event create
                         virtual void create(MAE_MURPHY & stm);
 
@@ -852,6 +870,12 @@ class MAE_MURPHY {
 
                         // returns the state containing the current
                         virtual AnyState * _upper(MAE_MURPHY & stm);
+
+                        // to manage the event near
+                        virtual void near(MAE_MURPHY & stm);
+
+                        // to manage the event blocage
+                        virtual void blocage(MAE_MURPHY & stm);
 
                     };
                     
@@ -878,9 +902,6 @@ class MAE_MURPHY {
                       public:
                         virtual ~avance_State();
 
-                        // to manage the event assFini
-                        virtual void assFini(MAE_MURPHY & stm);
-
                         // to manage the event create
                         virtual void create(MAE_MURPHY & stm);
 
@@ -889,6 +910,12 @@ class MAE_MURPHY {
 
                         // returns the state containing the current
                         virtual AnyState * _upper(MAE_MURPHY & stm);
+
+                        // to manage the event near
+                        virtual void near(MAE_MURPHY & stm);
+
+                        // to manage the event blocage
+                        virtual void blocage(MAE_MURPHY & stm);
 
                     };
                     
@@ -909,15 +936,14 @@ class MAE_MURPHY {
                         // returns the state containing the current
                         virtual AnyState * _upper(MAE_MURPHY & stm);
 
+                        virtual bool _completion(MAE_MURPHY & stm);
+
                     };
                     
                     // implement the state BF CAP vers centre de la table
                     class BF_CAP_vers_centre_de_la_table_State : public AnyState {
                       public:
                         virtual ~BF_CAP_vers_centre_de_la_table_State();
-
-                        // to manage the event assFini
-                        virtual void assFini(MAE_MURPHY & stm);
 
                         // to manage the event create
                         virtual void create(MAE_MURPHY & stm);
@@ -927,6 +953,12 @@ class MAE_MURPHY {
 
                         // returns the state containing the current
                         virtual AnyState * _upper(MAE_MURPHY & stm);
+
+                        // to manage the event near
+                        virtual void near(MAE_MURPHY & stm);
+
+                        // to manage the event blocage
+                        virtual void blocage(MAE_MURPHY & stm);
 
                     };
                     
@@ -959,6 +991,8 @@ class MAE_MURPHY {
                     // returns the state containing the current
                     virtual AnyState * _upper(MAE_MURPHY & stm);
 
+                    virtual bool _completion(MAE_MURPHY & stm);
+
                 };
                 
                 // implement the state claps central
@@ -969,9 +1003,6 @@ class MAE_MURPHY {
                       public:
                         virtual ~BF_droite_State();
 
-                        // to manage the event assFini
-                        virtual void assFini(MAE_MURPHY & stm);
-
                         // to manage the event create
                         virtual void create(MAE_MURPHY & stm);
 
@@ -980,6 +1011,12 @@ class MAE_MURPHY {
 
                         // returns the state containing the current
                         virtual AnyState * _upper(MAE_MURPHY & stm);
+
+                        // to manage the event near
+                        virtual void near(MAE_MURPHY & stm);
+
+                        // to manage the event blocage
+                        virtual void blocage(MAE_MURPHY & stm);
 
                     };
                     
@@ -988,9 +1025,6 @@ class MAE_MURPHY {
                       public:
                         virtual ~BF_cap_vers_estrade_State();
 
-                        // to manage the event assFini
-                        virtual void assFini(MAE_MURPHY & stm);
-
                         // to manage the event create
                         virtual void create(MAE_MURPHY & stm);
 
@@ -999,6 +1033,12 @@ class MAE_MURPHY {
 
                         // returns the state containing the current
                         virtual AnyState * _upper(MAE_MURPHY & stm);
+
+                        // to manage the event near
+                        virtual void near(MAE_MURPHY & stm);
+
+                        // to manage the event blocage
+                        virtual void blocage(MAE_MURPHY & stm);
 
                     };
                     
@@ -1007,9 +1047,6 @@ class MAE_MURPHY {
                       public:
                         virtual ~BF_cap_to_cine_State();
 
-                        // to manage the event assFini
-                        virtual void assFini(MAE_MURPHY & stm);
-
                         // to manage the event create
                         virtual void create(MAE_MURPHY & stm);
 
@@ -1018,6 +1055,12 @@ class MAE_MURPHY {
 
                         // returns the state containing the current
                         virtual AnyState * _upper(MAE_MURPHY & stm);
+
+                        // to manage the event near
+                        virtual void near(MAE_MURPHY & stm);
+
+                        // to manage the event blocage
+                        virtual void blocage(MAE_MURPHY & stm);
 
                     };
                     
@@ -1037,6 +1080,8 @@ class MAE_MURPHY {
 
                         // returns the state containing the current
                         virtual AnyState * _upper(MAE_MURPHY & stm);
+
+                        virtual bool _completion(MAE_MURPHY & stm);
 
                     };
                     
@@ -1132,9 +1177,6 @@ class MAE_MURPHY {
                       public:
                         virtual ~cap_to_mission_State();
 
-                        // to manage the event assFini
-                        virtual void assFini(MAE_MURPHY & stm);
-
                         // to manage the event create
                         virtual void create(MAE_MURPHY & stm);
 
@@ -1144,15 +1186,18 @@ class MAE_MURPHY {
                         // returns the state containing the current
                         virtual AnyState * _upper(MAE_MURPHY & stm);
 
+                        // to manage the event near
+                        virtual void near(MAE_MURPHY & stm);
+
+                        // to manage the event blocage
+                        virtual void blocage(MAE_MURPHY & stm);
+
                     };
                     
                     // implement the state cap mission
                     class cap_mission_State : public AnyState {
                       public:
                         virtual ~cap_mission_State();
-
-                        // to manage the event assFini
-                        virtual void assFini(MAE_MURPHY & stm);
 
                         // to manage the event create
                         virtual void create(MAE_MURPHY & stm);
@@ -1166,6 +1211,12 @@ class MAE_MURPHY {
                         // perform the 'exit behavior'
                         void _doexit(MAE_MURPHY & stm);
 
+                        // to manage the event near
+                        virtual void near(MAE_MURPHY & stm);
+
+                        // to manage the event blocage
+                        virtual void blocage(MAE_MURPHY & stm);
+
                     };
                     
                     // implement the state BF droite to mission
@@ -1176,9 +1227,6 @@ class MAE_MURPHY {
                         // to manage the exit point 'sortie', defined because probably shared
                         void _exit19(MAE_MURPHY & stm);
 
-                        // to manage the event assFini
-                        virtual void assFini(MAE_MURPHY & stm);
-
                         // to manage the event create
                         virtual void create(MAE_MURPHY & stm);
 
@@ -1187,6 +1235,12 @@ class MAE_MURPHY {
 
                         // returns the state containing the current
                         virtual AnyState * _upper(MAE_MURPHY & stm);
+
+                        // to manage the event near
+                        virtual void near(MAE_MURPHY & stm);
+
+                        // to manage the event blocage
+                        virtual void blocage(MAE_MURPHY & stm);
 
                     };
                     
@@ -1217,9 +1271,6 @@ class MAE_MURPHY {
                   public:
                     virtual ~BF_cap_vers_la_zone_adverse_State();
 
-                    // to manage the event assFini
-                    virtual void assFini(MAE_MURPHY & stm);
-
                     // to manage the event create
                     virtual void create(MAE_MURPHY & stm);
 
@@ -1228,6 +1279,12 @@ class MAE_MURPHY {
 
                     // returns the state containing the current
                     virtual AnyState * _upper(MAE_MURPHY & stm);
+
+                    // to manage the event blocage
+                    virtual void blocage(MAE_MURPHY & stm);
+
+                    // to manage the event near
+                    virtual void near(MAE_MURPHY & stm);
 
                 };
                 
@@ -1277,9 +1334,6 @@ class MAE_MURPHY {
                   public:
                     virtual ~recule_State();
 
-                    // to manage the event assFini
-                    virtual void assFini(MAE_MURPHY & stm);
-
                     // to manage the event create
                     virtual void create(MAE_MURPHY & stm);
 
@@ -1288,6 +1342,12 @@ class MAE_MURPHY {
 
                     // returns the state containing the current
                     virtual AnyState * _upper(MAE_MURPHY & stm);
+
+                    // to manage the event near
+                    virtual void near(MAE_MURPHY & stm);
+
+                    // to manage the event blocage
+                    virtual void blocage(MAE_MURPHY & stm);
 
                 };
                 
@@ -1900,9 +1960,6 @@ class MAE_MURPHY {
                       public:
                         virtual ~cap_to_mission_State();
 
-                        // to manage the event assFini
-                        virtual void assFini(MAE_MURPHY & stm);
-
                         // to manage the event create
                         virtual void create(MAE_MURPHY & stm);
 
@@ -1912,15 +1969,18 @@ class MAE_MURPHY {
                         // returns the state containing the current
                         virtual AnyState * _upper(MAE_MURPHY & stm);
 
+                        // to manage the event near
+                        virtual void near(MAE_MURPHY & stm);
+
+                        // to manage the event blocage
+                        virtual void blocage(MAE_MURPHY & stm);
+
                     };
                     
                     // implement the state cap mission
                     class cap_mission_State : public AnyState {
                       public:
                         virtual ~cap_mission_State();
-
-                        // to manage the event assFini
-                        virtual void assFini(MAE_MURPHY & stm);
 
                         // to manage the event create
                         virtual void create(MAE_MURPHY & stm);
@@ -1934,15 +1994,18 @@ class MAE_MURPHY {
                         // perform the 'exit behavior'
                         void _doexit(MAE_MURPHY & stm);
 
+                        // to manage the event near
+                        virtual void near(MAE_MURPHY & stm);
+
+                        // to manage the event blocage
+                        virtual void blocage(MAE_MURPHY & stm);
+
                     };
                     
                     // implement the state BF droite to mission
                     class BF_droite_to_mission_State : public AnyState {
                       public:
                         virtual ~BF_droite_to_mission_State();
-
-                        // to manage the event assFini
-                        virtual void assFini(MAE_MURPHY & stm);
 
                         // to manage the event create
                         virtual void create(MAE_MURPHY & stm);
@@ -1952,6 +2015,12 @@ class MAE_MURPHY {
 
                         // returns the state containing the current
                         virtual AnyState * _upper(MAE_MURPHY & stm);
+
+                        // to manage the event near
+                        virtual void near(MAE_MURPHY & stm);
+
+                        // to manage the event blocage
+                        virtual void blocage(MAE_MURPHY & stm);
 
                     };
                     
@@ -2024,6 +2093,8 @@ class MAE_MURPHY {
 
                         // returns the state containing the current
                         virtual AnyState * _upper(MAE_MURPHY & stm);
+
+                        virtual bool _completion(MAE_MURPHY & stm);
 
                     };
                     
@@ -2606,9 +2677,6 @@ class MAE_MURPHY {
                       public:
                         virtual ~orientation_vers_objectif_State();
 
-                        // to manage the event assFini
-                        virtual void assFini(MAE_MURPHY & stm);
-
                         // to manage the event create
                         virtual void create(MAE_MURPHY & stm);
 
@@ -2618,15 +2686,18 @@ class MAE_MURPHY {
                         // returns the state containing the current
                         virtual AnyState * _upper(MAE_MURPHY & stm);
 
+                        // to manage the event near
+                        virtual void near(MAE_MURPHY & stm);
+
+                        // to manage the event blocage
+                        virtual void blocage(MAE_MURPHY & stm);
+
                     };
                     
                     // implement the state BF cap mission
                     class BF_cap_mission_State : public AnyState {
                       public:
                         virtual ~BF_cap_mission_State();
-
-                        // to manage the event assFini
-                        virtual void assFini(MAE_MURPHY & stm);
 
                         // to manage the event create
                         virtual void create(MAE_MURPHY & stm);
@@ -2640,15 +2711,18 @@ class MAE_MURPHY {
                         // perform the 'exit behavior'
                         void _doexit(MAE_MURPHY & stm);
 
+                        // to manage the event blocage
+                        virtual void blocage(MAE_MURPHY & stm);
+
+                        // to manage the event near
+                        virtual void near(MAE_MURPHY & stm);
+
                     };
                     
                     // implement the state BF droite to objectif
                     class BF_droite_to_objectif_State : public AnyState {
                       public:
                         virtual ~BF_droite_to_objectif_State();
-
-                        // to manage the event assFini
-                        virtual void assFini(MAE_MURPHY & stm);
 
                         // to manage the event create
                         virtual void create(MAE_MURPHY & stm);
@@ -2658,6 +2732,12 @@ class MAE_MURPHY {
 
                         // returns the state containing the current
                         virtual AnyState * _upper(MAE_MURPHY & stm);
+
+                        // to manage the event near
+                        virtual void near(MAE_MURPHY & stm);
+
+                        // to manage the event blocage
+                        virtual void blocage(MAE_MURPHY & stm);
 
                     };
                     
@@ -2691,9 +2771,6 @@ class MAE_MURPHY {
                   public:
                     virtual ~transition_avant_reculage_State();
 
-                    // to manage the event assFini
-                    virtual void assFini(MAE_MURPHY & stm);
-
                     // to manage the event create
                     virtual void create(MAE_MURPHY & stm);
 
@@ -2702,6 +2779,12 @@ class MAE_MURPHY {
 
                     // returns the state containing the current
                     virtual AnyState * _upper(MAE_MURPHY & stm);
+
+                    // to manage the event near
+                    virtual void near(MAE_MURPHY & stm);
+
+                    // to manage the event blocage
+                    virtual void blocage(MAE_MURPHY & stm);
 
                 };
                 
@@ -2728,9 +2811,6 @@ class MAE_MURPHY {
                   public:
                     virtual ~avance_State();
 
-                    // to manage the event assFini
-                    virtual void assFini(MAE_MURPHY & stm);
-
                     // to manage the event create
                     virtual void create(MAE_MURPHY & stm);
 
@@ -2739,6 +2819,9 @@ class MAE_MURPHY {
 
                     // returns the state containing the current
                     virtual AnyState * _upper(MAE_MURPHY & stm);
+
+                    // to manage the event near
+                    virtual void near(MAE_MURPHY & stm);
 
                 };
                 
@@ -2832,9 +2915,6 @@ class MAE_MURPHY {
                   public:
                     virtual ~orientation_avant_reculage_State();
 
-                    // to manage the event assFini
-                    virtual void assFini(MAE_MURPHY & stm);
-
                     // to manage the event create
                     virtual void create(MAE_MURPHY & stm);
 
@@ -2843,6 +2923,12 @@ class MAE_MURPHY {
 
                     // returns the state containing the current
                     virtual AnyState * _upper(MAE_MURPHY & stm);
+
+                    // to manage the event near
+                    virtual void near(MAE_MURPHY & stm);
+
+                    // to manage the event blocage
+                    virtual void blocage(MAE_MURPHY & stm);
 
                 };
                 
@@ -2937,9 +3023,6 @@ class MAE_MURPHY {
                       public:
                         virtual ~orientation_vers_objectif_State();
 
-                        // to manage the event assFini
-                        virtual void assFini(MAE_MURPHY & stm);
-
                         // to manage the event create
                         virtual void create(MAE_MURPHY & stm);
 
@@ -2949,15 +3032,18 @@ class MAE_MURPHY {
                         // returns the state containing the current
                         virtual AnyState * _upper(MAE_MURPHY & stm);
 
+                        // to manage the event near
+                        virtual void near(MAE_MURPHY & stm);
+
+                        // to manage the event blocage
+                        virtual void blocage(MAE_MURPHY & stm);
+
                     };
                     
                     // implement the state orientation cap mission
                     class orientation_cap_mission_State : public AnyState {
                       public:
                         virtual ~orientation_cap_mission_State();
-
-                        // to manage the event assFini
-                        virtual void assFini(MAE_MURPHY & stm);
 
                         // to manage the event create
                         virtual void create(MAE_MURPHY & stm);
@@ -2971,15 +3057,18 @@ class MAE_MURPHY {
                         // perform the 'exit behavior'
                         void _doexit(MAE_MURPHY & stm);
 
+                        // to manage the event near
+                        virtual void near(MAE_MURPHY & stm);
+
+                        // to manage the event blocage
+                        virtual void blocage(MAE_MURPHY & stm);
+
                     };
                     
                     // implement the state BF droite vers l'objectif
                     class BF_droite_vers_lobjectif_State : public AnyState {
                       public:
                         virtual ~BF_droite_vers_lobjectif_State();
-
-                        // to manage the event assFini
-                        virtual void assFini(MAE_MURPHY & stm);
 
                         // to manage the event create
                         virtual void create(MAE_MURPHY & stm);
@@ -2989,6 +3078,12 @@ class MAE_MURPHY {
 
                         // returns the state containing the current
                         virtual AnyState * _upper(MAE_MURPHY & stm);
+
+                        // to manage the event near
+                        virtual void near(MAE_MURPHY & stm);
+
+                        // to manage the event blocage
+                        virtual void blocage(MAE_MURPHY & stm);
 
                     };
                     
@@ -3025,9 +3120,6 @@ class MAE_MURPHY {
                       public:
                         virtual ~avance_State();
 
-                        // to manage the event assFini
-                        virtual void assFini(MAE_MURPHY & stm);
-
                         // to manage the event create
                         virtual void create(MAE_MURPHY & stm);
 
@@ -3036,6 +3128,12 @@ class MAE_MURPHY {
 
                         // returns the state containing the current
                         virtual AnyState * _upper(MAE_MURPHY & stm);
+
+                        // to manage the event near
+                        virtual void near(MAE_MURPHY & stm);
+
+                        // to manage the event blocage
+                        virtual void blocage(MAE_MURPHY & stm);
 
                     };
                     
@@ -3044,9 +3142,6 @@ class MAE_MURPHY {
                       public:
                         virtual ~orientation_vers_sortie_de_zone_State();
 
-                        // to manage the event assFini
-                        virtual void assFini(MAE_MURPHY & stm);
-
                         // to manage the event create
                         virtual void create(MAE_MURPHY & stm);
 
@@ -3055,6 +3150,12 @@ class MAE_MURPHY {
 
                         // returns the state containing the current
                         virtual AnyState * _upper(MAE_MURPHY & stm);
+
+                        // to manage the event near
+                        virtual void near(MAE_MURPHY & stm);
+
+                        // to manage the event blocage
+                        virtual void blocage(MAE_MURPHY & stm);
 
                     };
                     
@@ -3063,9 +3164,6 @@ class MAE_MURPHY {
                       public:
                         virtual ~recule_State();
 
-                        // to manage the event assFini
-                        virtual void assFini(MAE_MURPHY & stm);
-
                         // to manage the event create
                         virtual void create(MAE_MURPHY & stm);
 
@@ -3074,6 +3172,12 @@ class MAE_MURPHY {
 
                         // returns the state containing the current
                         virtual AnyState * _upper(MAE_MURPHY & stm);
+
+                        // to manage the event near
+                        virtual void near(MAE_MURPHY & stm);
+
+                        // to manage the event blocage
+                        virtual void blocage(MAE_MURPHY & stm);
 
                     };
                     
@@ -3215,18 +3319,21 @@ class MAE_MURPHY {
                         // returns the state containing the current
                         virtual AnyState * _upper(MAE_MURPHY & stm);
 
-                        // to manage the event assFini
-                        virtual void assFini(MAE_MURPHY & stm);
+                        // to manage the event near
+                        virtual void near(MAE_MURPHY & stm);
+
+                        // to manage the event blocage
+                        virtual void blocage(MAE_MURPHY & stm);
 
                     };
                     
-                    // implement the state recule
-                    class recule_State : public AnyState {
+                    // implement the state recalage bordure depart
+                    class recalage_bordure_depart_State : public AnyState {
                       public:
-                        virtual ~recule_State();
+                        virtual ~recalage_bordure_depart_State();
 
-                        // to manage the event assFini
-                        virtual void assFini(MAE_MURPHY & stm);
+                        // to manage the event blocage
+                        virtual void blocage(MAE_MURPHY & stm);
 
                         // to manage the event create
                         virtual void create(MAE_MURPHY & stm);
@@ -3236,6 +3343,47 @@ class MAE_MURPHY {
 
                         // returns the state containing the current
                         virtual AnyState * _upper(MAE_MURPHY & stm);
+
+                    };
+                    
+                    // implement the state decalage bordure
+                    class decalage_bordure_State : public AnyState {
+                      public:
+                        virtual ~decalage_bordure_State();
+
+                        // to manage the event near
+                        virtual void near(MAE_MURPHY & stm);
+
+                        // to manage the event blocage
+                        virtual void blocage(MAE_MURPHY & stm);
+
+                        // to manage the event create
+                        virtual void create(MAE_MURPHY & stm);
+
+                        // perform the 'entry behavior'
+                        void _doentry(MAE_MURPHY & stm);
+
+                        // returns the state containing the current
+                        virtual AnyState * _upper(MAE_MURPHY & stm);
+
+                    };
+                    
+                    // implement the state recule
+                    class recule_State : public AnyState {
+                      public:
+                        virtual ~recule_State();
+
+                        // to manage the event create
+                        virtual void create(MAE_MURPHY & stm);
+
+                        // perform the 'entry behavior'
+                        void _doentry(MAE_MURPHY & stm);
+
+                        // returns the state containing the current
+                        virtual AnyState * _upper(MAE_MURPHY & stm);
+
+                        // to manage the event near
+                        virtual void near(MAE_MURPHY & stm);
 
                     };
                     
@@ -3263,9 +3411,6 @@ class MAE_MURPHY {
                       public:
                         virtual ~BF_avance_State();
 
-                        // to manage the event assFini
-                        virtual void assFini(MAE_MURPHY & stm);
-
                         // to manage the event create
                         virtual void create(MAE_MURPHY & stm);
 
@@ -3274,6 +3419,12 @@ class MAE_MURPHY {
 
                         // returns the state containing the current
                         virtual AnyState * _upper(MAE_MURPHY & stm);
+
+                        // to manage the event near
+                        virtual void near(MAE_MURPHY & stm);
+
+                        // to manage the event blocage
+                        virtual void blocage(MAE_MURPHY & stm);
 
                     };
                     
@@ -3293,6 +3444,8 @@ class MAE_MURPHY {
 
                         // returns the state containing the current
                         virtual AnyState * _upper(MAE_MURPHY & stm);
+
+                        virtual bool _completion(MAE_MURPHY & stm);
 
                     };
                     
@@ -3325,6 +3478,12 @@ class MAE_MURPHY {
                     // returns the state containing the current
                     virtual AnyState * _upper(MAE_MURPHY & stm);
 
+                    // memorize the instance of the state decalage bordure, internal
+                    decalage_bordure_State _decalage_bordure_state;
+
+                    // memorize the instance of the state recalage bordure depart, internal
+                    recalage_bordure_depart_State _recalage_bordure_depart_state;
+
                 };
                 
                 // implement the state capture stands cote escalier
@@ -3335,9 +3494,6 @@ class MAE_MURPHY {
                       public:
                         virtual ~BF_cap_initial_35deg_State();
 
-                        // to manage the event assFini
-                        virtual void assFini(MAE_MURPHY & stm);
-
                         // to manage the event create
                         virtual void create(MAE_MURPHY & stm);
 
@@ -3346,6 +3502,12 @@ class MAE_MURPHY {
 
                         // returns the state containing the current
                         virtual AnyState * _upper(MAE_MURPHY & stm);
+
+                        // to manage the event near
+                        virtual void near(MAE_MURPHY & stm);
+
+                        // to manage the event blocage
+                        virtual void blocage(MAE_MURPHY & stm);
 
                     };
                     
@@ -3354,9 +3516,6 @@ class MAE_MURPHY {
                       public:
                         virtual ~recule_State();
 
-                        // to manage the event assFini
-                        virtual void assFini(MAE_MURPHY & stm);
-
                         // to manage the event create
                         virtual void create(MAE_MURPHY & stm);
 
@@ -3365,6 +3524,12 @@ class MAE_MURPHY {
 
                         // returns the state containing the current
                         virtual AnyState * _upper(MAE_MURPHY & stm);
+
+                        // to manage the event near
+                        virtual void near(MAE_MURPHY & stm);
+
+                        // to manage the event blocage
+                        virtual void blocage(MAE_MURPHY & stm);
 
                     };
                     
@@ -3392,9 +3557,6 @@ class MAE_MURPHY {
                       public:
                         virtual ~BF_avance_seconde_State();
 
-                        // to manage the event assFini
-                        virtual void assFini(MAE_MURPHY & stm);
-
                         // to manage the event create
                         virtual void create(MAE_MURPHY & stm);
 
@@ -3406,6 +3568,9 @@ class MAE_MURPHY {
 
                         // to manage the event blocage
                         virtual void blocage(MAE_MURPHY & stm);
+
+                        // to manage the event near
+                        virtual void near(MAE_MURPHY & stm);
 
                     };
                     
@@ -3452,9 +3617,6 @@ class MAE_MURPHY {
                       public:
                         virtual ~BF_avance_State();
 
-                        // to manage the event assFini
-                        virtual void assFini(MAE_MURPHY & stm);
-
                         // to manage the event create
                         virtual void create(MAE_MURPHY & stm);
 
@@ -3463,6 +3625,12 @@ class MAE_MURPHY {
 
                         // returns the state containing the current
                         virtual AnyState * _upper(MAE_MURPHY & stm);
+
+                        // to manage the event near
+                        virtual void near(MAE_MURPHY & stm);
+
+                        // to manage the event blocage
+                        virtual void blocage(MAE_MURPHY & stm);
 
                     };
                     
@@ -3483,15 +3651,14 @@ class MAE_MURPHY {
                         // returns the state containing the current
                         virtual AnyState * _upper(MAE_MURPHY & stm);
 
+                        virtual bool _completion(MAE_MURPHY & stm);
+
                     };
                     
                     // implement the state BF droite vers le stand
                     class BF_droite_vers_le_stand_State : public AnyState {
                       public:
                         virtual ~BF_droite_vers_le_stand_State();
-
-                        // to manage the event assFini
-                        virtual void assFini(MAE_MURPHY & stm);
 
                         // to manage the event create
                         virtual void create(MAE_MURPHY & stm);
@@ -3501,6 +3668,12 @@ class MAE_MURPHY {
 
                         // returns the state containing the current
                         virtual AnyState * _upper(MAE_MURPHY & stm);
+
+                        // to manage the event blocage
+                        virtual void blocage(MAE_MURPHY & stm);
+
+                        // to manage the event near
+                        virtual void near(MAE_MURPHY & stm);
 
                     };
                     
@@ -3567,15 +3740,15 @@ class MAE_MURPHY {
                         // returns the state containing the current
                         virtual AnyState * _upper(MAE_MURPHY & stm);
 
+                        // to manage the event blocage
+                        virtual void blocage(MAE_MURPHY & stm);
+
                     };
                     
                     // implement the state recule
                     class recule_State : public AnyState {
                       public:
                         virtual ~recule_State();
-
-                        // to manage the event assFini
-                        virtual void assFini(MAE_MURPHY & stm);
 
                         // to manage the event create
                         virtual void create(MAE_MURPHY & stm);
@@ -3586,15 +3759,18 @@ class MAE_MURPHY {
                         // returns the state containing the current
                         virtual AnyState * _upper(MAE_MURPHY & stm);
 
+                        // to manage the event near
+                        virtual void near(MAE_MURPHY & stm);
+
+                        // to manage the event blocage
+                        virtual void blocage(MAE_MURPHY & stm);
+
                     };
                     
                     // implement the state BF cap vers la zone de distrib
                     class BF_cap_vers_la_zone_de_distrib_State : public AnyState {
                       public:
                         virtual ~BF_cap_vers_la_zone_de_distrib_State();
-
-                        // to manage the event assFini
-                        virtual void assFini(MAE_MURPHY & stm);
 
                         // to manage the event create
                         virtual void create(MAE_MURPHY & stm);
@@ -3623,6 +3799,8 @@ class MAE_MURPHY {
 
                         // returns the state containing the current
                         virtual AnyState * _upper(MAE_MURPHY & stm);
+
+                        virtual bool _completion(MAE_MURPHY & stm);
 
                     };
                     
@@ -4024,6 +4202,8 @@ class MAE_MURPHY {
   friend class MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin_State::tourne_recal_State;
   friend class MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin_State::recalY_State;
   friend class MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin_State::setxycap_State;
+  friend class MAE_MURPHY_State::Jeu_State::mission_pillage_distrib_State::capture_stand_bordure_State::decalage_bordure_State;
+  friend class MAE_MURPHY_State::Jeu_State::mission_pillage_distrib_State::capture_stand_bordure_State::recalage_bordure_depart_State;
 };
 // change the current state, internal
 inline void MAE_MURPHY::_set_currentState(MAE_MURPHY::AnyState & st) {
