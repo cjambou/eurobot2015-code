@@ -444,7 +444,7 @@ void MAE_MURPHY::MAE_MURPHY_State::Recalage_Initial_State::avance_State::_doentr
 #endif
   // pour laisser de la place à coop'r
   cout<<"avance de 200 mm "<<endl;
-  serialPrintf(master->getPortSerie(),"S4 250 \n");
+  serialPrintf(master->getPortSerie(),"S4 220 \n");
 }
 
 // returns the state containing the current
@@ -2191,18 +2191,6 @@ MAE_MURPHY::AnyState * MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_zone_enn
 MAE_MURPHY::MAE_MURPHY_State::Jeu_State::sortie_de_zone_de_depart_State::~sortie_de_zone_de_depart_State() {
 }
 
-// to manage the event assFini
-void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::sortie_de_zone_de_depart_State::assFini(MAE_MURPHY & stm) {
-    {
-      stm._mae_murphy_state._jeu_state._sortie_de_zone_de_depart_state._doexit(stm);
-      stm._set_currentState(stm._mae_murphy_state._jeu_state._decision_state);
-#ifdef VERBOSE_STATE_MACHINE
-      puts("DEBUG : current state is now .MAE_MURPHY.Jeu.decision");
-#endif
-      stm._mae_murphy_state._jeu_state._decision_state.create(stm);
-    }
-}
-
 // to manage the event create
 void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::sortie_de_zone_de_depart_State::create(MAE_MURPHY & stm) {
   	_doentry(stm);
@@ -2232,6 +2220,30 @@ void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::sortie_de_zone_de_depart_State::_d
   	puts("DEBUG : execute exit behavior of .MAE_MURPHY.Jeu.sortie de zone de depart");
 #endif
   serialPrintf(master->getPortSerie(),"S7 0 \n"); 	// vitesse moyenne
+}
+
+// to manage the event near
+void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::sortie_de_zone_de_depart_State::near(MAE_MURPHY & stm) {
+    {
+      stm._mae_murphy_state._jeu_state._sortie_de_zone_de_depart_state._doexit(stm);
+      stm._set_currentState(stm._mae_murphy_state._jeu_state._decision_state);
+#ifdef VERBOSE_STATE_MACHINE
+      puts("DEBUG : current state is now .MAE_MURPHY.Jeu.decision");
+#endif
+      stm._mae_murphy_state._jeu_state._decision_state.create(stm);
+    }
+}
+
+// to manage the event blocage
+void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::sortie_de_zone_de_depart_State::blocage(MAE_MURPHY & stm) {
+    {
+      stm._mae_murphy_state._jeu_state._sortie_de_zone_de_depart_state._doexit(stm);
+      stm._set_currentState(stm._mae_murphy_state._jeu_state._decision_state);
+#ifdef VERBOSE_STATE_MACHINE
+      puts("DEBUG : current state is now .MAE_MURPHY.Jeu.decision");
+#endif
+      stm._mae_murphy_state._jeu_state._decision_state.create(stm);
+    }
 }
 
 MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_depot_de_tour_zone_depart_State::way_point_initial_State::cap_to_mission_State::~cap_to_mission_State() {
@@ -4175,8 +4187,19 @@ MAE_MURPHY::AnyState * MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_claps_St
     return &stm._mae_murphy_state._jeu_state._mission_claps_state._chope_du_coin_state;
 }
 
-// to manage the event near
-void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin_State::BF_droite_sur_le_verre_State::near(MAE_MURPHY & stm) {
+// to manage the event assFini
+void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin_State::BF_droite_sur_le_verre_State::assFini(MAE_MURPHY & stm) {
+    {
+      stm._set_currentState(stm._mae_murphy_state._jeu_state._mission_claps_state._chope_du_coin_state._chope_gobelet_state);
+#ifdef VERBOSE_STATE_MACHINE
+      puts("DEBUG : current state is now .MAE_MURPHY.Jeu.mission claps.chope du coin.chope gobelet");
+#endif
+      stm._mae_murphy_state._jeu_state._mission_claps_state._chope_du_coin_state._chope_gobelet_state.create(stm);
+    }
+}
+
+// to manage the event blocage
+void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin_State::BF_droite_sur_le_verre_State::blocage(MAE_MURPHY & stm) {
     {
       stm._set_currentState(stm._mae_murphy_state._jeu_state._mission_claps_state._chope_du_coin_state._chope_gobelet_state);
 #ifdef VERBOSE_STATE_MACHINE

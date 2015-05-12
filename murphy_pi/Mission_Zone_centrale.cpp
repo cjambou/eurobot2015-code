@@ -17,11 +17,11 @@ void Mission_Zone_centrale::set_couleur(int couleur_)
     couleur = couleur_;
     if(couleur == 0) // jaune
     {
-        set_coord_debut_mission(Coord(-240,860,-95));
+        set_coord_debut_mission(Coord(-240,840,-95));
     }
     if(couleur == 1)  // vert
     {
-        set_coord_debut_mission(Coord(240,860, -95));
+        set_coord_debut_mission(Coord(240,840, -95));
     }
 }
 

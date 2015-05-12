@@ -1101,9 +1101,6 @@ class MAE_MURPHY {
               public:
                 virtual ~sortie_de_zone_de_depart_State();
 
-                // to manage the event assFini
-                virtual void assFini(MAE_MURPHY & stm);
-
                 // to manage the event create
                 virtual void create(MAE_MURPHY & stm);
 
@@ -1115,6 +1112,12 @@ class MAE_MURPHY {
 
                 // perform the 'exit behavior'
                 void _doexit(MAE_MURPHY & stm);
+
+                // to manage the event near
+                virtual void near(MAE_MURPHY & stm);
+
+                // to manage the event blocage
+                virtual void blocage(MAE_MURPHY & stm);
 
             };
             
@@ -2063,8 +2066,11 @@ class MAE_MURPHY {
                         // returns the state containing the current
                         virtual AnyState * _upper(MAE_MURPHY & stm);
 
-                        // to manage the event near
-                        virtual void near(MAE_MURPHY & stm);
+                        // to manage the event assFini
+                        virtual void assFini(MAE_MURPHY & stm);
+
+                        // to manage the event blocage
+                        virtual void blocage(MAE_MURPHY & stm);
 
                     };
                     
