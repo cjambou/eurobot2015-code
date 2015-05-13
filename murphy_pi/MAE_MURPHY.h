@@ -2150,6 +2150,28 @@ class MAE_MURPHY {
 
                     };
                     
+                    // implement the state BF transitoire sur verre
+                    class BF_transitoire_sur_verre_State : public AnyState {
+                      public:
+                        virtual ~BF_transitoire_sur_verre_State();
+
+                        // to manage the event near
+                        virtual void near(MAE_MURPHY & stm);
+
+                        // to manage the event blocage
+                        virtual void blocage(MAE_MURPHY & stm);
+
+                        // to manage the event create
+                        virtual void create(MAE_MURPHY & stm);
+
+                        // perform the 'entry behavior'
+                        void _doentry(MAE_MURPHY & stm);
+
+                        // returns the state containing the current
+                        virtual AnyState * _upper(MAE_MURPHY & stm);
+
+                    };
+                    
                     // implement the state setxycap
                     class setxycap_State : public AnyState {
                       public:
@@ -2502,25 +2524,6 @@ class MAE_MURPHY {
 
                     };
                     
-                    // implement the state recule vers la zone de depart
-                    class recule_vers_la_zone_de_depart_State : public AnyState {
-                      public:
-                        virtual ~recule_vers_la_zone_de_depart_State();
-
-                        // to manage the event assFini
-                        virtual void assFini(MAE_MURPHY & stm);
-
-                        // to manage the event create
-                        virtual void create(MAE_MURPHY & stm);
-
-                        // perform the 'entry behavior'
-                        void _doentry(MAE_MURPHY & stm);
-
-                        // returns the state containing the current
-                        virtual AnyState * _upper(MAE_MURPHY & stm);
-
-                    };
-                    
                     // implement the state recule des stands
                     class recule_des_stands_State : public AnyState {
                       public:
@@ -2571,9 +2574,6 @@ class MAE_MURPHY {
 
                     // memorize the instance of the state recule des stands, internal
                     recule_des_stands_State _recule_des_stands_state;
-
-                    // memorize the instance of the state recule vers la zone de depart, internal
-                    recule_vers_la_zone_de_depart_State _recule_vers_la_zone_de_depart_state;
 
                     // memorize the instance of the state BF droite vers les stands, internal
                     BF_droite_vers_les_stands_State _bf_droite_vers_les_stands_state;
@@ -2637,6 +2637,9 @@ class MAE_MURPHY {
 
                     // memorize the instance of the state setxycap, internal
                     setxycap_State _setxycap_state;
+
+                    // memorize the instance of the state BF transitoire sur verre, internal
+                    BF_transitoire_sur_verre_State _bf_transitoire_sur_verre_state;
 
                 };
                 
@@ -4063,7 +4066,6 @@ class MAE_MURPHY {
   friend class MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin_State::BF_droite_sur_le_verre_State;
   friend class MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin_State::chope_gobelet_State;
   friend class MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin_State::recule_des_stands_State;
-  friend class MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin_State::recule_vers_la_zone_de_depart_State;
   friend class MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin_State::BF_droite_vers_les_stands_State;
   friend class MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin_State::ouvre_pince_State;
   friend class MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin_State::avance_State;
@@ -4209,6 +4211,7 @@ class MAE_MURPHY {
   friend class MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin_State::setxycap_State;
   friend class MAE_MURPHY_State::Jeu_State::mission_pillage_distrib_State::capture_stand_bordure_State::decalage_bordure_State;
   friend class MAE_MURPHY_State::Jeu_State::mission_pillage_distrib_State::capture_stand_bordure_State::recalage_bordure_depart_State;
+  friend class MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin_State::BF_transitoire_sur_verre_State;
 };
 // change the current state, internal
 inline void MAE_MURPHY::_set_currentState(MAE_MURPHY::AnyState & st) {

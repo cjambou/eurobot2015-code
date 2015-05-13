@@ -2928,6 +2928,16 @@ void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_depot_de_tour_zone_depart_
   }
   
   // depot de gobelet ?
+  cout<<"chiage : drop gobelet"<<endl;
+  // drop si present
+  //master->set_time_out(200);
+  if(master->get_gestionnaire_mission()->get_element_robot()->gobelet_present())
+  {
+  	master->get_gestionnaire_mission()->get_element_robot()->gobelet_relache();
+  	master->get_gestionnaire_mission()->get_mission_chiage_balle()->drop_gobelet_done();
+  	// drop gobelet
+  	serialPrintf(master->getPortSerie(),"P4 \n");
+  }
 }
 
 // returns the state containing the current
@@ -4478,11 +4488,11 @@ void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin
   cout<<"coin : BF droite sur verre"<<endl;
   if(master->is_Jaune()){
   // BF droite sur le gobelet 
-  serialPrintf(master->getPortSerie(),"S5 -1250 238 180 \n");
+  serialPrintf(master->getPortSerie(),"S5 -1250 243 180 \n");
   }
   if(master->is_Vert()){
   // BF droite sur le gobelet 
-  serialPrintf(master->getPortSerie(),"S5 1250 238 0 \n");
+  serialPrintf(master->getPortSerie(),"S5 1250 243 0 \n");
   }
 }
 
@@ -4511,6 +4521,57 @@ void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin
 #endif
       stm._mae_murphy_state._jeu_state._mission_claps_state._chope_du_coin_state._chope_gobelet_state.create(stm);
     }
+}
+
+MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin_State::BF_transitoire_sur_verre_State::~BF_transitoire_sur_verre_State() {
+}
+
+// to manage the event near
+void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin_State::BF_transitoire_sur_verre_State::near(MAE_MURPHY & stm) {
+    {
+      stm._set_currentState(stm._mae_murphy_state._jeu_state._mission_claps_state._chope_du_coin_state._bf_droite_sur_le_verre_state);
+#ifdef VERBOSE_STATE_MACHINE
+      puts("DEBUG : current state is now .MAE_MURPHY.Jeu.mission claps.chope du coin.BF droite sur le verre");
+#endif
+      stm._mae_murphy_state._jeu_state._mission_claps_state._chope_du_coin_state._bf_droite_sur_le_verre_state.create(stm);
+    }
+}
+
+// to manage the event blocage
+void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin_State::BF_transitoire_sur_verre_State::blocage(MAE_MURPHY & stm) {
+    {
+      stm._set_currentState(stm._mae_murphy_state._jeu_state._mission_claps_state._chope_du_coin_state._bf_droite_sur_le_verre_state);
+#ifdef VERBOSE_STATE_MACHINE
+      puts("DEBUG : current state is now .MAE_MURPHY.Jeu.mission claps.chope du coin.BF droite sur le verre");
+#endif
+      stm._mae_murphy_state._jeu_state._mission_claps_state._chope_du_coin_state._bf_droite_sur_le_verre_state.create(stm);
+    }
+}
+
+// to manage the event create
+void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin_State::BF_transitoire_sur_verre_State::create(MAE_MURPHY & stm) {
+  	_doentry(stm);
+}
+
+// perform the 'entry behavior'
+void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin_State::BF_transitoire_sur_verre_State::_doentry(MAE_MURPHY & stm) {
+#ifdef VERBOSE_STATE_MACHINE
+  	puts("DEBUG : execute entry behavior of .MAE_MURPHY.Jeu.mission claps.chope du coin.BF transitoire sur verre");
+#endif
+  cout<<"coin : BF droite sur verre"<<endl;
+  if(master->is_Jaune()){
+  // BF droite sur le gobelet 
+  serialPrintf(master->getPortSerie(),"S5 -1150 243 180 \n");
+  }
+  if(master->is_Vert()){
+  // BF droite sur le gobelet 
+  serialPrintf(master->getPortSerie(),"S5 1150 243 0 \n");
+  }
+}
+
+// returns the state containing the current
+MAE_MURPHY::AnyState * MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin_State::BF_transitoire_sur_verre_State::_upper(MAE_MURPHY & stm) {
+    return &stm._mae_murphy_state._jeu_state._mission_claps_state._chope_du_coin_state;
 }
 
 MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin_State::setxycap_State::~setxycap_State() {
@@ -5001,7 +5062,7 @@ void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin
   	puts("DEBUG : execute entry behavior of .MAE_MURPHY.Jeu.mission claps.chope du coin.re avance");
 #endif
   cout<<"coin : avance sur 2nd stand"<<endl;
-  serialPrintf(master->getPortSerie(),"S4 110 \n");
+  serialPrintf(master->getPortSerie(),"S4 120 \n");
 }
 
 // returns the state containing the current
@@ -5123,7 +5184,7 @@ void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin
   	puts("DEBUG : execute entry behavior of .MAE_MURPHY.Jeu.mission claps.chope du coin.avance");
 #endif
   cout<<"coin : avance sur 1er stand"<<endl;
-  serialPrintf(master->getPortSerie(),"S4 120 \n");
+  serialPrintf(master->getPortSerie(),"S4 150 \n");
 }
 
 // returns the state containing the current
@@ -5221,11 +5282,11 @@ void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin
   cout<<"coin : BF droite sur stands"<<endl;
   if(master->is_Jaune()){
   // BF droite sur le gobelet 
-  serialPrintf(master->getPortSerie(),"S5 -1180 500 -90 \n");
+  serialPrintf(master->getPortSerie(),"S5 -1200 500 -90 \n");
   }
   if(master->is_Vert()){
   // BF droite sur le gobelet 
-  serialPrintf(master->getPortSerie(),"S5 1180 500 -90 \n");
+  serialPrintf(master->getPortSerie(),"S5 1200 500 -90 \n");
   }
 }
 
@@ -5254,47 +5315,6 @@ void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin
 #endif
       stm._mae_murphy_state._jeu_state._mission_claps_state._chope_du_coin_state._ouvre_pince_state.create(stm);
     }
-}
-
-MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin_State::recule_vers_la_zone_de_depart_State::~recule_vers_la_zone_de_depart_State() {
-}
-
-// to manage the event assFini
-void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin_State::recule_vers_la_zone_de_depart_State::assFini(MAE_MURPHY & stm) {
-    {
-      stm._set_currentState(stm._mae_murphy_state._jeu_state._mission_claps_state._chope_du_coin_state._bf_droite_vers_les_stands_state);
-#ifdef VERBOSE_STATE_MACHINE
-      puts("DEBUG : current state is now .MAE_MURPHY.Jeu.mission claps.chope du coin.BF droite vers les stands");
-#endif
-      stm._mae_murphy_state._jeu_state._mission_claps_state._chope_du_coin_state._bf_droite_vers_les_stands_state.create(stm);
-    }
-}
-
-// to manage the event create
-void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin_State::recule_vers_la_zone_de_depart_State::create(MAE_MURPHY & stm) {
-  	_doentry(stm);
-}
-
-// perform the 'entry behavior'
-void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin_State::recule_vers_la_zone_de_depart_State::_doentry(MAE_MURPHY & stm) {
-#ifdef VERBOSE_STATE_MACHINE
-  	puts("DEBUG : execute entry behavior of .MAE_MURPHY.Jeu.mission claps.chope du coin.recule vers la zone de depart");
-#endif
-  cout<<"coin : recule vers la zone de depart"<<endl;
-  //serialPrintf(master->getPortSerie(),"S4 -350 \n");
-  if(master->is_Jaune()){
-  // BF droite sur le gobelet 
-  serialPrintf(master->getPortSerie(),"S5 -1013 610 -90 \n");
-  }
-  if(master->is_Vert()){
-  // BF droite sur le gobelet 
-  serialPrintf(master->getPortSerie(),"S5 1013 610 -90 \n");
-  }
-}
-
-// returns the state containing the current
-MAE_MURPHY::AnyState * MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin_State::recule_vers_la_zone_de_depart_State::_upper(MAE_MURPHY & stm) {
-    return &stm._mae_murphy_state._jeu_state._mission_claps_state._chope_du_coin_state;
 }
 
 MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin_State::recule_des_stands_State::~recule_des_stands_State() {
@@ -5384,11 +5404,11 @@ MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin_Stat
 void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin_State::create(MAE_MURPHY & stm) {
     _doentry(stm);
     {
-      stm._set_currentState(stm._mae_murphy_state._jeu_state._mission_claps_state._chope_du_coin_state._bf_droite_sur_le_verre_state);
+      stm._set_currentState(stm._mae_murphy_state._jeu_state._mission_claps_state._chope_du_coin_state._bf_transitoire_sur_verre_state);
 #ifdef VERBOSE_STATE_MACHINE
-      puts("DEBUG : current state is now .MAE_MURPHY.Jeu.mission claps.chope du coin.BF droite sur le verre");
+      puts("DEBUG : current state is now .MAE_MURPHY.Jeu.mission claps.chope du coin.BF transitoire sur verre");
 #endif
-      stm._mae_murphy_state._jeu_state._mission_claps_state._chope_du_coin_state._bf_droite_sur_le_verre_state.create(stm);
+      stm._mae_murphy_state._jeu_state._mission_claps_state._chope_du_coin_state._bf_transitoire_sur_verre_state.create(stm);
     }
 }
 
