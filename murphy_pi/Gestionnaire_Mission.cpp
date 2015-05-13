@@ -514,7 +514,7 @@ void Gestionnaire_Mission::actualisation_Priorite()
         ***********************************************************************************************************/
         /// si on rempli les piles comme il faut
         /// donc faut aller ider ça vite fait
-        if(element_robot.pile_droite_nbr()=>2 || element_robot.pile_gauche_nbr()>=2)
+        if(element_robot.pile_droite_nbr()>=2 || element_robot.pile_gauche_nbr()>=2)
         {
             if(couleur == 0)
             {
