@@ -28,7 +28,7 @@ Gestionnaire_Mission::Gestionnaire_Mission():
     mae_murphy.create();
     //mission_zone_ennemie.mission_remplie();
     mission_distrib.mission_remplie();
-    mission_depot_tour_estrade.mission_remplie();
+    //mission_depot_tour_estrade.mission_remplie();
 
     //mission_depot_tour_depart.mission_remplie();
     mission_chiage_balle.mission_remplie();
