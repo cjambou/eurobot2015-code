@@ -3215,7 +3215,6 @@ MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::chope
 
 // to manage the event pince_stand_by
 void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::chope_stand_3_State::pince_stand_by(MAE_MURPHY & stm) {
-    if (_completion(stm)) return;
     {
       stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._chope_stand_3_state._doexit(stm);
       stm._set_currentState(stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._tempo_pour_coopr_state);
@@ -3229,7 +3228,6 @@ void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::
 // to manage the event create
 void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::chope_stand_3_State::create(MAE_MURPHY & stm) {
   	_doentry(stm);
-  	_completion(stm);
 }
 
 // perform the 'entry behavior'
@@ -3258,18 +3256,6 @@ void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::
 // returns the state containing the current
 MAE_MURPHY::AnyState * MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::chope_stand_3_State::_upper(MAE_MURPHY & stm) {
     return &stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state;
-}
-
-bool MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::chope_stand_3_State::_completion(MAE_MURPHY & stm) {
-    {
-      stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._chope_stand_3_state._doexit(stm);
-      stm._set_currentState(stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._tempo_pour_coopr_state);
-#ifdef VERBOSE_STATE_MACHINE
-      puts("DEBUG : current state is now .MAE_MURPHY.Jeu.mission rush zone centrale.tempo pour coop'r?");
-#endif
-      stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._tempo_pour_coopr_state.create(stm);
-      return (bool) 1;
-    }
 }
 
 MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::BF_droite_stand_3_State::~BF_droite_stand_3_State() {

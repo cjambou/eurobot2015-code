@@ -1558,8 +1558,6 @@ class MAE_MURPHY {
                     // returns the state containing the current
                     virtual AnyState * _upper(MAE_MURPHY & stm);
 
-                    virtual bool _completion(MAE_MURPHY & stm);
-
                 };
                 
                 // implement the state BF droite stand 3
