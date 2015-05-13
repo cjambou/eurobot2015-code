@@ -3273,10 +3273,10 @@ void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::
 #endif
   cout<<"stand depart : BF droite sur cible"<<endl;
   if(master->is_Jaune()){
-  serialPrintf(master->getPortSerie(),"S5 -528 623 110 \n");
+  serialPrintf(master->getPortSerie(),"S5 -525 639 110 \n");
   }
   if(master->is_Vert()){
-  serialPrintf(master->getPortSerie(),"S5 528 623 70 \n");
+  serialPrintf(master->getPortSerie(),"S5 525 639 70 \n"); // woow
   }
 }
 
@@ -3469,10 +3469,10 @@ void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::
 #endif
   cout<<"stand estrade : BF droite sur cible"<<endl;
   if(master->is_Jaune()){
-  serialPrintf(master->getPortSerie(),"S5 -434 347 -122 \n");
+  serialPrintf(master->getPortSerie(),"S5 -454 326 -122 \n");
   }
   if(master->is_Vert()){
-  serialPrintf(master->getPortSerie(),"S5 434 347 302 \n");
+  serialPrintf(master->getPortSerie(),"S5 454 326 302 \n");
   }
 }
 
@@ -3625,10 +3625,10 @@ void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::
 #endif
   cout<<"stand central : BF droite sur cible"<<endl;
   //if(master->is_Jaune()){
-  //serialPrintf(master->getPortSerie(),"S5 -270 687 -100 \n");
+  //serialPrintf(master->getPortSerie(),"S5 -297 662 -100 \n");
   //}
   //if(master->is_Vert()){
-  //serialPrintf(master->getPortSerie(),"S5 270 687 280 \n");
+  //serialPrintf(master->getPortSerie(),"S5 297 662 280 \n");
   //}
   serialPrintf(master->getPortSerie(),"S4 200 \n");
 }
