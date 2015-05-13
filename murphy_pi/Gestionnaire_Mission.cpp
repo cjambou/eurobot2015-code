@@ -21,7 +21,9 @@ Gestionnaire_Mission::Gestionnaire_Mission():
         premiere_entree_decision(true),
         strategie_1(0),
         strategie_2(0),
-        distance_mission(0)
+        distance_mission(0),
+        sortie_evitement(false)
+
 {
     mae_murphy.create();
     //mission_zone_ennemie.mission_remplie();
