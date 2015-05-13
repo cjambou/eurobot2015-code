@@ -453,7 +453,7 @@ class Constructeur_pile
 /****************************************************
    IO
 *****************************************************/
-#define NOMBRE_MIN_STAND_AVANT_INJECTION 3
+#define NOMBRE_MIN_STAND_AVANT_INJECTION 2
 class IO
 {
     private:

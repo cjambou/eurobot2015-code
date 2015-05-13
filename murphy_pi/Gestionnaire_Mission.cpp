@@ -27,7 +27,7 @@ Gestionnaire_Mission::Gestionnaire_Mission():
     //mission_zone_ennemie.mission_remplie();
     //mission_distrib.mission_remplie();
     //mission_depot_tour_estrade.mission_remplie();
-    mission_depot_tour_depart.mission_remplie();
+    //mission_depot_tour_depart.mission_remplie();
     mission_chiage_balle.mission_remplie();
 
 }
@@ -514,26 +514,26 @@ void Gestionnaire_Mission::actualisation_Priorite()
         ***********************************************************************************************************/
         /// si on rempli les piles comme il faut
         /// donc faut aller ider ça vite fait
-        if(element_robot.pile_droite_nbr()==4 || element_robot.pile_gauche_nbr()==4)
+        if(element_robot.pile_droite_nbr()=>2 || element_robot.pile_gauche_nbr()>=2)
         {
             if(couleur == 0)
             {
-                if(element_robot.pile_gauche_nbr()==4)
+                if(element_robot.pile_gauche_nbr()>=2)
                 {
                     mission_depot_tour_estrade.set_priorite(PRIORITE_MISSION_FIRST);
                 }
-                if(element_robot.pile_droite_nbr()==4)
+                if(element_robot.pile_droite_nbr()>=2)
                 {
                     mission_depot_tour_depart.set_priorite(PRIORITE_MISSION_HAUTE);
                 }
             }
             if(couleur == 1)
             {
-                if(element_robot.pile_droite_nbr()==4)
+                if(element_robot.pile_droite_nbr()>=2)
                 {
                     mission_depot_tour_estrade.set_priorite(PRIORITE_MISSION_FIRST);
                 }
-                if(element_robot.pile_gauche_nbr()==4)
+                if(element_robot.pile_gauche_nbr()>=2)
                 {
                     mission_depot_tour_depart.set_priorite(PRIORITE_MISSION_HAUTE);
                 }
@@ -542,7 +542,9 @@ void Gestionnaire_Mission::actualisation_Priorite()
         else
         {
             /// si le temps presse on va vider quoi qu'il arrive
-            if((temps_restant<20) && (element_robot.pile_droite_nbr()>=1 || element_robot.pile_gauche_nbr()>=1) )
+            // le timer marche pas bien.... pose pb
+            /*
+            if((temps_restant<20) && (element_robot.pile_droite_nbr()>=2 || element_robot.pile_gauche_nbr()>=2) )
             {
                 mission_depot_tour_depart.set_priorite(PRIORITE_MISSION_FIRST);
                 mission_depot_tour_estrade.set_priorite(PRIORITE_MISSION_FIRST);
@@ -552,6 +554,10 @@ void Gestionnaire_Mission::actualisation_Priorite()
                 mission_depot_tour_depart.set_priorite(PRIORITE_MISSION_FAIBLE);
                 mission_depot_tour_estrade.set_priorite(PRIORITE_MISSION_FAIBLE);
             }
+            */
+                mission_depot_tour_depart.set_priorite(PRIORITE_MISSION_FAIBLE);
+                mission_depot_tour_estrade.set_priorite(PRIORITE_MISSION_FAIBLE);
+
         }// fin depot pile
 
 

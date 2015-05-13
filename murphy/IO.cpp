@@ -758,7 +758,7 @@ void Balle_droite::in_state_func()
 *****************************************************/
 #define PINCEUR_DEPLOYEMENT_TOTAL_GAUCHE 1180
 #define PINCEUR_RELACHEMENT_GAUCHE 1460//1530
-#define PINCEUR_SAISIE_GAUCHE 1720
+#define PINCEUR_SAISIE_GAUCHE 1720//1800 //1720
 
 #define PINCEUR_DEPLOYEMENT_TOTAL_DROITE 1600
 #define PINCEUR_RELACHEMENT_DROITE 1270
@@ -899,7 +899,7 @@ void ColorSensor::write_debug()
 //constant odo a regler
 //voir si besoin de gauche et droite
 #define ASC_TARGET_CHOPE 636 // on bump en bas
-#define ASC_TARGET_DEPOT_ESTRADE 420 // +- 10 tic
+#define ASC_TARGET_DEPOT_ESTRADE 350 //420 // +- 10 tic
 #define ASC_TARGET_CHARGE_HAUTE 0
 
 Ascenseur::Ascenseur(bool cote_droit_s,int pin_bas,int pin_haut):
@@ -1613,6 +1613,7 @@ void Constructeur_pile::trigger(int transition)
         case ETAT_PILE_ANALYSE   :
             if (transition == TRANS_PILE_TIME_OUT){ //mettre les autre IR et compagnie
                 // si on detecte qqchose dans la pince on le monte, pour incrementer la pile
+                /**
                 if(ir_bas_pince.is_on()){
                     // SI COULEUR ok, sinon on re ouvre
                     state = ETAT_PILE_DECISION_MOVE;
@@ -1626,7 +1627,8 @@ void Constructeur_pile::trigger(int transition)
                         Serial.println("# ASC_GAUCHE_BREDOUILLE");
                     }
                 }
-                //state = ETAT_PILE_DECISION_MOVE;
+                */ // sinon peut bugger parfois
+                state = ETAT_PILE_DECISION_MOVE;
             }
             break;
 
@@ -1735,12 +1737,6 @@ void Constructeur_pile::trigger(int transition)
          case ETAT_PILE_DEPOT_FULL_H_PRET    :
             if (transition == TRANS_PILE_POSE){ //mettre les autre IR et compagnie
                 state = ETAT_PILE_DEPOT_FULL_H_POSE;
-            }
-            break;
-
-        case ETAT_PILE_DEPOT_FULL_H_POSE    :
-            if (transition == TRANS_PILE_REPLIS){ //mettre les autre IR et compagnie
-                state = ETAT_PILE_DEPOT_FULL_REPLIS_1;
                 nombre_element = 0;
                 if(cote_droit){
                     Serial.println("# ASC_DROITE_LACHEE");
@@ -1748,6 +1744,12 @@ void Constructeur_pile::trigger(int transition)
                 else{
                     Serial.println("# ASC_GAUCHE_LACHEE");
                 }
+            }
+            break;
+
+        case ETAT_PILE_DEPOT_FULL_H_POSE    :
+            if (transition == TRANS_PILE_REPLIS){ //mettre les autre IR et compagnie
+                state = ETAT_PILE_DEPOT_FULL_REPLIS_1;
             }
             break;
 
