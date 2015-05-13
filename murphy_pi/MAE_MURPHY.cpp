@@ -3199,6 +3199,7 @@ MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::degag
 // to manage the event near
 void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::degagement_State::near(MAE_MURPHY & stm) {
     {
+      stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._degagement_state._doexit(stm);
       stm._set_currentState(stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state);
 #ifdef VERBOSE_STATE_MACHINE
       puts("DEBUG : current state is now .MAE_MURPHY.Jeu.mission rush zone centrale");
@@ -3210,6 +3211,7 @@ void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::
 // to manage the event blocage
 void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::degagement_State::blocage(MAE_MURPHY & stm) {
     {
+      stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._degagement_state._doexit(stm);
       stm._set_currentState(stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state);
 #ifdef VERBOSE_STATE_MACHINE
       puts("DEBUG : current state is now .MAE_MURPHY.Jeu.mission rush zone centrale");
@@ -3235,6 +3237,15 @@ void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::
 // returns the state containing the current
 MAE_MURPHY::AnyState * MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::degagement_State::_upper(MAE_MURPHY & stm) {
     return &stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state;
+}
+
+// perform the 'exit behavior'
+void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::degagement_State::_doexit(MAE_MURPHY & stm) {
+#ifdef VERBOSE_STATE_MACHINE
+  	puts("DEBUG : execute exit behavior of .MAE_MURPHY.Jeu.mission rush zone centrale.degagement");
+#endif
+  serialPrintf(master->getPortSerie(),"G2 \n");
+  serialPrintf(master->getPortSerie(),"D2 \n");
 }
 
 MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::enfonce_lestrade_State::~enfonce_lestrade_State() {

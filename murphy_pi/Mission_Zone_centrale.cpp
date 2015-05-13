@@ -68,7 +68,7 @@ bool Mission_Zone_centrale::is_stand_depart_catched()
 }
 
 
-void Mission_Zone_centrale::activation_rush_salaMission_Zone_centrale::ce()
+void Mission_Zone_centrale::activation_rush_salace()
 {
     rush_salace = true;
 }

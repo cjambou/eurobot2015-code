@@ -1540,6 +1540,9 @@ class MAE_MURPHY {
                     // returns the state containing the current
                     virtual AnyState * _upper(MAE_MURPHY & stm);
 
+                    // perform the 'exit behavior'
+                    void _doexit(MAE_MURPHY & stm);
+
                 };
                 
                 // implement the state enfonce lestrade
