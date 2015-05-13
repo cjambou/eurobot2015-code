@@ -1202,7 +1202,7 @@ Aspiration_Bras::Aspiration_Bras():
     clap_gauche(false),
     clap_droite(true),
     aspiration(),
-    period_run(50),
+    period_run(100),
     t_over(0),
     time_out_on(false),
     state(0)

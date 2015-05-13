@@ -465,9 +465,10 @@ void ControlLoop::check_blockage()
    if (dep.norm() < 2.0 && abs(real_coord.get_cap() - late_pos.get_cap()) < 0.05)
    {
         count_not_moving += 1;
+        /* pourri le canal
         Serial.print("INC BLOC COUNT ");
         Serial.println(100. * abs(real_coord.get_cap() - late_pos.get_cap()));
-
+        */
    }
    else
     {

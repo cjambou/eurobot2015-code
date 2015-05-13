@@ -14,7 +14,7 @@
 #define CAP true
 #define DEP false
 
-#define deltaT 0.02
+#define deltaT 0.03
 class PID
 {
     private:

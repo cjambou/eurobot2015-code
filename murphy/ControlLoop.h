@@ -42,16 +42,16 @@
 #define GAIN_KD_CAP_MEDIUM 262.5 //18.0 //40.0
 
 // gain PID deplacement en slow
-#define GAIN_KP_DEP_SLOW 15.6
-#define GAIN_KI_DEP_SLOW 44.0
-#define GAIN_KD_DEP_SLOW 1.36
-#define GAIN_KP_CAP_SLOW 2100.  //Ku = 3500
-#define GAIN_KI_CAP_SLOW 4200. //52.0 //70.0
-#define GAIN_KD_CAP_SLOW 262.5 //18.0 //40.0
+#define GAIN_KP_DEP_SLOW 5.20//15.6
+#define GAIN_KI_DEP_SLOW 31.2//44.0
+#define GAIN_KD_DEP_SLOW 1.95//1.36
+#define GAIN_KP_CAP_SLOW 700//2100.  //Ku = 3500
+#define GAIN_KI_CAP_SLOW 1555//4200. //52.0 //70.0
+#define GAIN_KD_CAP_SLOW 210//262.5 //18.0 //40.0
 
 
 // norme sur les etats de transistion proche  et fini
-#define NEAR_ERROR_DEP 250
+#define NEAR_ERROR_DEP 200
 #define DONE_ERROR_DEP 100
 
 // gain PID cap (rotation)

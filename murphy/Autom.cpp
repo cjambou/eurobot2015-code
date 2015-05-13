@@ -1,7 +1,7 @@
 #include "Autom.h"
 #include "Const.h"
 
-#define PERIODE_PID 20
+#define PERIODE_PID 30
 #define PERIODE_COORD 10
 #define PERIODE_SONAR 500
 
