@@ -10,8 +10,8 @@ Gestionnaire_Mission::Gestionnaire_Mission():
         mission_distrib(true),
         mission_chiage_balle(true),
         mission_zone_centrale(true),
-        mission_depot_tour_depart(true),
-        mission_depot_tour_estrade(true),
+        mission_depot_tour_depart(true,2),      // le nombre c'est le nombre de pile a deposer
+        mission_depot_tour_estrade(true,1),     // le nombre c'est le nombre de pile a deposer
         mission_zone_ennemie(true),
         coord_reel(0,0,0),
         mae_murphy(),
@@ -25,8 +25,9 @@ Gestionnaire_Mission::Gestionnaire_Mission():
 {
     mae_murphy.create();
     //mission_zone_ennemie.mission_remplie();
-    //mission_distrib.mission_remplie();
-    //mission_depot_tour_estrade.mission_remplie();
+    mission_distrib.mission_remplie();
+    mission_depot_tour_estrade.mission_remplie();
+
     //mission_depot_tour_depart.mission_remplie();
     mission_chiage_balle.mission_remplie();
 
@@ -459,6 +460,9 @@ void Gestionnaire_Mission::actualisation_Priorite()
         /***********************************************************************************************************
                     ZONE CENTRALE
         ***********************************************************************************************************/
+
+        mission_zone_centrale.set_priorite(PRIORITE_MISSION_FIRST);
+        /**
         if(strategie_1==1)
         {
             mission_zone_centrale.set_priorite(PRIORITE_MISSION_FIRST);
@@ -467,7 +471,7 @@ void Gestionnaire_Mission::actualisation_Priorite()
         {
             mission_zone_centrale.set_priorite(PRIORITE_MISSION_MOYENNE);
         }
-
+        */
 
         /***********************************************************************************************************
                     ZONE ENNEMIE

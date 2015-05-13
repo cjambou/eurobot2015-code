@@ -364,6 +364,8 @@ void Protocole_COM::executeinstr()
         {
             cout<<"[Master] strategie 1 : 0 "<<endl;
             master->get_gestionnaire_mission()->set_strategie_1(0);
+            // rush salace
+            master->get_gestionnaire_mission()->get_mission_zone_centrale()->desactivation_rush_salace();
         }
 
         //si vert
@@ -371,6 +373,8 @@ void Protocole_COM::executeinstr()
         {
             cout<<"[Master] strategie 1 : 1 "<<endl;
             master->get_gestionnaire_mission()->set_strategie_1(1);
+            // rush salace on
+            master->get_gestionnaire_mission()->get_mission_zone_centrale()->activation_rush_salace();
         }
 
         // si jaune

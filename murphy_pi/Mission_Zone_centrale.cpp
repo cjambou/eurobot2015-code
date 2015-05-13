@@ -5,7 +5,8 @@ Mission_Zone_centrale::Mission_Zone_centrale(bool mission_a_faire_):
     couleur(0),
     stand_central(false),
     stand_estrade(false),
-    stand_depart(false)
+    stand_depart(false),
+    rush_salace(false)
 {
     set_couleur(couleur);
 }
@@ -17,11 +18,25 @@ void Mission_Zone_centrale::set_couleur(int couleur_)
     couleur = couleur_;
     if(couleur == 0) // jaune
     {
-        set_coord_debut_mission(Coord(-240,840,-95));
+        if(is_rush_salace_on())
+        {
+            set_coord_debut_mission(Coord(-880,750,-45));
+        }
+        else{
+            set_coord_debut_mission(Coord(-240,840,-95));
+        }
+
     }
     if(couleur == 1)  // vert
     {
-        set_coord_debut_mission(Coord(240,840, -95));
+        if(is_rush_salace_on())
+        {
+            set_coord_debut_mission(Coord(880,750, -135));
+        }
+        else{
+            set_coord_debut_mission(Coord(240,840, -85));
+        }
+
     }
 }
 
@@ -50,4 +65,18 @@ void Mission_Zone_centrale::catch_stand_depart()
 bool Mission_Zone_centrale::is_stand_depart_catched()
 {
     return stand_depart;
+}
+
+
+void Mission_Zone_centrale::activation_rush_salaMission_Zone_centrale::ce()
+{
+    rush_salace = true;
+}
+bool Mission_Zone_centrale::is_rush_salace_on()
+{
+    return rush_salace;
+}
+void Mission_Zone_centrale::desactivation_rush_salace()
+{
+    rush_salace = false;
 }

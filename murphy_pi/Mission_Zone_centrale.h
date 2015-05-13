@@ -19,11 +19,17 @@ class Mission_Zone_centrale : public Mission
         void catch_stand_depart();
         bool is_stand_depart_catched();
 
+        void activation_rush_salace();
+        bool is_rush_salace_on();
+        void desactivation_rush_salace();
+
     private:
         int couleur;
         bool stand_central;
         bool stand_estrade;
         bool stand_depart;
+
+        bool rush_salace;
 
 };
 

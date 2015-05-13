@@ -3144,43 +3144,331 @@ void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::
 #ifdef VERBOSE_STATE_MACHINE
       puts("DEBUG : current state is now .MAE_MURPHY.Jeu.mission rush zone centrale");
 #endif
-      if (!master->get_gestionnaire_mission()->get_mission_zone_centrale()->is_stand_central_catched()) {
-        stm._set_currentState(stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._ouverture_pince_state);
+      if (!master->get_gestionnaire_mission()->get_mission_zone_centrale()->is_rush_salace_on()) {
+        if (!master->get_gestionnaire_mission()->get_mission_zone_centrale()->is_stand_central_catched()) {
+          stm._set_currentState(stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._ouverture_pince_state);
 #ifdef VERBOSE_STATE_MACHINE
-        puts("DEBUG : current state is now .MAE_MURPHY.Jeu.mission rush zone centrale.ouverture pince");
+          puts("DEBUG : current state is now .MAE_MURPHY.Jeu.mission rush zone centrale.ouverture pince");
 #endif
-        stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._ouverture_pince_state.create(stm);
+          stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._ouverture_pince_state.create(stm);
+        }
+        else if (master->get_gestionnaire_mission()->get_mission_zone_centrale()->is_stand_central_catched()) {
+          if (!master->get_gestionnaire_mission()->get_mission_zone_centrale()->is_stand_estrade_catched()) {
+            stm._set_currentState(stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._re_ouverture_pince_state);
+#ifdef VERBOSE_STATE_MACHINE
+            puts("DEBUG : current state is now .MAE_MURPHY.Jeu.mission rush zone centrale.re ouverture pince");
+#endif
+            stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._re_ouverture_pince_state.create(stm);
+          }
+          else if (master->get_gestionnaire_mission()->get_mission_zone_centrale()->is_stand_estrade_catched()) {
+            if (master->get_gestionnaire_mission()->get_mission_zone_centrale()->is_stand_depart_catched()) {
+              stm._set_currentState(stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._tempo_pour_coopr_state);
+#ifdef VERBOSE_STATE_MACHINE
+              puts("DEBUG : current state is now .MAE_MURPHY.Jeu.mission rush zone centrale.tempo pour coop'r?");
+#endif
+              stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._tempo_pour_coopr_state.create(stm);
+            }
+            else if (!master->get_gestionnaire_mission()->get_mission_zone_centrale()->is_stand_depart_catched()) {
+              stm._set_currentState(stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._bf_cap_sur_stand_3_state);
+#ifdef VERBOSE_STATE_MACHINE
+              puts("DEBUG : current state is now .MAE_MURPHY.Jeu.mission rush zone centrale.BF cap sur stand 3");
+#endif
+              stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._bf_cap_sur_stand_3_state.create(stm);
+            }
+          }
+        }
       }
-      else if (master->get_gestionnaire_mission()->get_mission_zone_centrale()->is_stand_central_catched()) {
-        if (!master->get_gestionnaire_mission()->get_mission_zone_centrale()->is_stand_estrade_catched()) {
-          stm._set_currentState(stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._re_ouverture_pince_state);
+      else if (master->get_gestionnaire_mission()->get_mission_zone_centrale()->is_rush_salace_on()) {
+        stm._set_currentState(stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._rush_salace_state);
 #ifdef VERBOSE_STATE_MACHINE
-          puts("DEBUG : current state is now .MAE_MURPHY.Jeu.mission rush zone centrale.re ouverture pince");
+        puts("DEBUG : current state is now .MAE_MURPHY.Jeu.mission rush zone centrale.rush salace");
 #endif
-          stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._re_ouverture_pince_state.create(stm);
-        }
-        else if (master->get_gestionnaire_mission()->get_mission_zone_centrale()->is_stand_estrade_catched()) {
-          if (master->get_gestionnaire_mission()->get_mission_zone_centrale()->is_stand_depart_catched()) {
-            stm._set_currentState(stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._tempo_pour_coopr_state);
-#ifdef VERBOSE_STATE_MACHINE
-            puts("DEBUG : current state is now .MAE_MURPHY.Jeu.mission rush zone centrale.tempo pour coop'r?");
-#endif
-            stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._tempo_pour_coopr_state.create(stm);
-          }
-          else if (!master->get_gestionnaire_mission()->get_mission_zone_centrale()->is_stand_depart_catched()) {
-            stm._set_currentState(stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._bf_cap_sur_stand_3_state);
-#ifdef VERBOSE_STATE_MACHINE
-            puts("DEBUG : current state is now .MAE_MURPHY.Jeu.mission rush zone centrale.BF cap sur stand 3");
-#endif
-            stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._bf_cap_sur_stand_3_state.create(stm);
-          }
-        }
+        stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._rush_salace_state.create(stm);
       }
     }
 }
 
 // returns the state containing the current
 MAE_MURPHY::AnyState * MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::waypoint_init_State::_upper(MAE_MURPHY & stm) {
+    return &stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state;
+}
+
+MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::degagement_State::~degagement_State() {
+}
+
+// to manage the event near
+void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::degagement_State::near(MAE_MURPHY & stm) {
+    {
+      stm._set_currentState(stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state);
+#ifdef VERBOSE_STATE_MACHINE
+      puts("DEBUG : current state is now .MAE_MURPHY.Jeu.mission rush zone centrale");
+#endif
+      stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._exit17(stm);
+    }
+}
+
+// to manage the event blocage
+void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::degagement_State::blocage(MAE_MURPHY & stm) {
+    {
+      stm._set_currentState(stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state);
+#ifdef VERBOSE_STATE_MACHINE
+      puts("DEBUG : current state is now .MAE_MURPHY.Jeu.mission rush zone centrale");
+#endif
+      stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._exit17(stm);
+    }
+}
+
+// to manage the event create
+void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::degagement_State::create(MAE_MURPHY & stm) {
+  	_doentry(stm);
+}
+
+// perform the 'entry behavior'
+void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::degagement_State::_doentry(MAE_MURPHY & stm) {
+#ifdef VERBOSE_STATE_MACHINE
+  	puts("DEBUG : execute entry behavior of .MAE_MURPHY.Jeu.mission rush zone centrale.degagement");
+#endif
+  cout<<"rsuh central : BF droite sur cible"<<endl;
+  serialPrintf(master->getPortSerie(),"S4 -250 \n");
+}
+
+// returns the state containing the current
+MAE_MURPHY::AnyState * MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::degagement_State::_upper(MAE_MURPHY & stm) {
+    return &stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state;
+}
+
+MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::enfonce_lestrade_State::~enfonce_lestrade_State() {
+}
+
+// to manage the event assFini
+void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::enfonce_lestrade_State::assFini(MAE_MURPHY & stm) {
+    {
+      stm._set_currentState(stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._degagement_state);
+#ifdef VERBOSE_STATE_MACHINE
+      puts("DEBUG : current state is now .MAE_MURPHY.Jeu.mission rush zone centrale.degagement");
+#endif
+      stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._degagement_state.create(stm);
+    }
+}
+
+// to manage the event blocage
+void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::enfonce_lestrade_State::blocage(MAE_MURPHY & stm) {
+    {
+      stm._set_currentState(stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._degagement_state);
+#ifdef VERBOSE_STATE_MACHINE
+      puts("DEBUG : current state is now .MAE_MURPHY.Jeu.mission rush zone centrale.degagement");
+#endif
+      stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._degagement_state.create(stm);
+    }
+}
+
+// to manage the event create
+void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::enfonce_lestrade_State::create(MAE_MURPHY & stm) {
+  	_doentry(stm);
+}
+
+// perform the 'entry behavior'
+void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::enfonce_lestrade_State::_doentry(MAE_MURPHY & stm) {
+#ifdef VERBOSE_STATE_MACHINE
+  	puts("DEBUG : execute entry behavior of .MAE_MURPHY.Jeu.mission rush zone centrale.enfonce lestrade");
+#endif
+  cout<<"rsuh central : BF droite sur cible"<<endl;
+  serialPrintf(master->getPortSerie(),"S4 400 \n");
+}
+
+// returns the state containing the current
+MAE_MURPHY::AnyState * MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::enfonce_lestrade_State::_upper(MAE_MURPHY & stm) {
+    return &stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state;
+}
+
+MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::BF_droite_way_point_3_State::~BF_droite_way_point_3_State() {
+}
+
+// to manage the event near
+void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::BF_droite_way_point_3_State::near(MAE_MURPHY & stm) {
+    {
+      stm._set_currentState(stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._enfonce_lestrade_state);
+#ifdef VERBOSE_STATE_MACHINE
+      puts("DEBUG : current state is now .MAE_MURPHY.Jeu.mission rush zone centrale.enfonce lestrade");
+#endif
+      stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._enfonce_lestrade_state.create(stm);
+    }
+}
+
+// to manage the event blocage
+void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::BF_droite_way_point_3_State::blocage(MAE_MURPHY & stm) {
+    {
+      stm._set_currentState(stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._enfonce_lestrade_state);
+#ifdef VERBOSE_STATE_MACHINE
+      puts("DEBUG : current state is now .MAE_MURPHY.Jeu.mission rush zone centrale.enfonce lestrade");
+#endif
+      stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._enfonce_lestrade_state.create(stm);
+    }
+}
+
+// to manage the event create
+void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::BF_droite_way_point_3_State::create(MAE_MURPHY & stm) {
+  	_doentry(stm);
+}
+
+// perform the 'entry behavior'
+void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::BF_droite_way_point_3_State::_doentry(MAE_MURPHY & stm) {
+#ifdef VERBOSE_STATE_MACHINE
+  	puts("DEBUG : execute entry behavior of .MAE_MURPHY.Jeu.mission rush zone centrale.BF droite way point 3");
+#endif
+  cout<<"rsuh central : BF droite sur cible"<<endl;
+  if(master->is_Jaune()){
+  serialPrintf(master->getPortSerie(),"S5 -110 240 -90 \n");
+  }
+  if(master->is_Vert()){
+  serialPrintf(master->getPortSerie(),"S5 110 240 -90 \n");
+  }
+}
+
+// returns the state containing the current
+MAE_MURPHY::AnyState * MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::BF_droite_way_point_3_State::_upper(MAE_MURPHY & stm) {
+    return &stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state;
+}
+
+MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::BF_droite_way_point_2_State::~BF_droite_way_point_2_State() {
+}
+
+// to manage the event blocage
+void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::BF_droite_way_point_2_State::blocage(MAE_MURPHY & stm) {
+    {
+      stm._set_currentState(stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._bf_droite_way_point_3_state);
+#ifdef VERBOSE_STATE_MACHINE
+      puts("DEBUG : current state is now .MAE_MURPHY.Jeu.mission rush zone centrale.BF droite way point 3");
+#endif
+      stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._bf_droite_way_point_3_state.create(stm);
+    }
+}
+
+// to manage the event near
+void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::BF_droite_way_point_2_State::near(MAE_MURPHY & stm) {
+    {
+      stm._set_currentState(stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._bf_droite_way_point_3_state);
+#ifdef VERBOSE_STATE_MACHINE
+      puts("DEBUG : current state is now .MAE_MURPHY.Jeu.mission rush zone centrale.BF droite way point 3");
+#endif
+      stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._bf_droite_way_point_3_state.create(stm);
+    }
+}
+
+// to manage the event create
+void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::BF_droite_way_point_2_State::create(MAE_MURPHY & stm) {
+  	_doentry(stm);
+}
+
+// perform the 'entry behavior'
+void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::BF_droite_way_point_2_State::_doentry(MAE_MURPHY & stm) {
+#ifdef VERBOSE_STATE_MACHINE
+  	puts("DEBUG : execute entry behavior of .MAE_MURPHY.Jeu.mission rush zone centrale.BF droite way point 2");
+#endif
+  cout<<"rsuh central : BF droite sur cible"<<endl;
+  if(master->is_Jaune()){
+  serialPrintf(master->getPortSerie(),"S5 -278 372 -26 \n");
+  }
+  if(master->is_Vert()){
+  serialPrintf(master->getPortSerie(),"S5 278 372 -154 \n");
+  }
+}
+
+// returns the state containing the current
+MAE_MURPHY::AnyState * MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::BF_droite_way_point_2_State::_upper(MAE_MURPHY & stm) {
+    return &stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state;
+}
+
+MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::BF_droite_way_point_1_State::~BF_droite_way_point_1_State() {
+}
+
+// to manage the event near
+void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::BF_droite_way_point_1_State::near(MAE_MURPHY & stm) {
+    {
+      stm._set_currentState(stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._bf_droite_way_point_2_state);
+#ifdef VERBOSE_STATE_MACHINE
+      puts("DEBUG : current state is now .MAE_MURPHY.Jeu.mission rush zone centrale.BF droite way point 2");
+#endif
+      stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._bf_droite_way_point_2_state.create(stm);
+    }
+}
+
+// to manage the event blocage
+void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::BF_droite_way_point_1_State::blocage(MAE_MURPHY & stm) {
+    {
+      stm._set_currentState(stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._bf_droite_way_point_2_state);
+#ifdef VERBOSE_STATE_MACHINE
+      puts("DEBUG : current state is now .MAE_MURPHY.Jeu.mission rush zone centrale.BF droite way point 2");
+#endif
+      stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._bf_droite_way_point_2_state.create(stm);
+    }
+}
+
+// to manage the event create
+void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::BF_droite_way_point_1_State::create(MAE_MURPHY & stm) {
+  	_doentry(stm);
+}
+
+// perform the 'entry behavior'
+void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::BF_droite_way_point_1_State::_doentry(MAE_MURPHY & stm) {
+#ifdef VERBOSE_STATE_MACHINE
+  	puts("DEBUG : execute entry behavior of .MAE_MURPHY.Jeu.mission rush zone centrale.BF droite way point 1");
+#endif
+  cout<<"rsuh central : BF droite sur cible"<<endl;
+  if(master->is_Jaune()){
+  serialPrintf(master->getPortSerie(),"S5 -458 543 -50 \n");
+  }
+  if(master->is_Vert()){
+  serialPrintf(master->getPortSerie(),"S5 458 543 -130 \n");
+  }
+}
+
+// returns the state containing the current
+MAE_MURPHY::AnyState * MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::BF_droite_way_point_1_State::_upper(MAE_MURPHY & stm) {
+    return &stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state;
+}
+
+MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::rush_salace_State::~rush_salace_State() {
+}
+
+bool MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::rush_salace_State::_completion(MAE_MURPHY & stm) {
+    {
+      stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._rush_salace_state._doexit(stm);
+      stm._set_currentState(stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._bf_droite_way_point_1_state);
+#ifdef VERBOSE_STATE_MACHINE
+      puts("DEBUG : current state is now .MAE_MURPHY.Jeu.mission rush zone centrale.BF droite way point 1");
+#endif
+      stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state._bf_droite_way_point_1_state.create(stm);
+      return (bool) 1;
+    }
+}
+
+// to manage the event create
+void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::rush_salace_State::create(MAE_MURPHY & stm) {
+  	_doentry(stm);
+  	_completion(stm);
+}
+
+// perform the 'entry behavior'
+void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::rush_salace_State::_doentry(MAE_MURPHY & stm) {
+#ifdef VERBOSE_STATE_MACHINE
+  	puts("DEBUG : execute entry behavior of .MAE_MURPHY.Jeu.mission rush zone centrale.rush salace");
+#endif
+  cout<<"rush sale : ouverture des pinces"<<endl;
+  serialPrintf(master->getPortSerie(),"G0 \n");
+  serialPrintf(master->getPortSerie(),"D0 \n");
+}
+
+// perform the 'exit behavior'
+void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::rush_salace_State::_doexit(MAE_MURPHY & stm) {
+#ifdef VERBOSE_STATE_MACHINE
+  	puts("DEBUG : execute exit behavior of .MAE_MURPHY.Jeu.mission rush zone centrale.rush salace");
+#endif
+  master->get_gestionnaire_mission()->get_mission_zone_centrale()->mission_remplie();
+}
+
+// returns the state containing the current
+MAE_MURPHY::AnyState * MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::rush_salace_State::_upper(MAE_MURPHY & stm) {
     return &stm._mae_murphy_state._jeu_state._mission_rush_zone_centrale_state;
 }
 
@@ -3773,12 +4061,6 @@ void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::
 // returns the state containing the current
 MAE_MURPHY::AnyState * MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::_upper(MAE_MURPHY & stm) {
     return &stm._mae_murphy_state._jeu_state;
-}
-
-bool MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::_completion(MAE_MURPHY & stm) {
-    {
-      return (bool) 1;
-    }
 }
 
 MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_stand_sur_la_route_State::BF_droite_State::~BF_droite_State() {
@@ -4486,6 +4768,8 @@ void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin
   	puts("DEBUG : execute entry behavior of .MAE_MURPHY.Jeu.mission claps.chope du coin.BF droite sur le verre");
 #endif
   cout<<"coin : BF droite sur verre"<<endl;
+  serialPrintf(master->getPortSerie(),"S4 200 \n");
+  /*
   if(master->is_Jaune()){
   // BF droite sur le gobelet 
   serialPrintf(master->getPortSerie(),"S5 -1250 243 180 \n");
@@ -4494,6 +4778,7 @@ void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin
   // BF droite sur le gobelet 
   serialPrintf(master->getPortSerie(),"S5 1250 243 0 \n");
   }
+  */
 }
 
 // returns the state containing the current
@@ -4526,17 +4811,6 @@ void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin
 MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin_State::BF_transitoire_sur_verre_State::~BF_transitoire_sur_verre_State() {
 }
 
-// to manage the event near
-void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin_State::BF_transitoire_sur_verre_State::near(MAE_MURPHY & stm) {
-    {
-      stm._set_currentState(stm._mae_murphy_state._jeu_state._mission_claps_state._chope_du_coin_state._bf_droite_sur_le_verre_state);
-#ifdef VERBOSE_STATE_MACHINE
-      puts("DEBUG : current state is now .MAE_MURPHY.Jeu.mission claps.chope du coin.BF droite sur le verre");
-#endif
-      stm._mae_murphy_state._jeu_state._mission_claps_state._chope_du_coin_state._bf_droite_sur_le_verre_state.create(stm);
-    }
-}
-
 // to manage the event blocage
 void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin_State::BF_transitoire_sur_verre_State::blocage(MAE_MURPHY & stm) {
     {
@@ -4561,17 +4835,28 @@ void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin
   cout<<"coin : BF droite sur verre"<<endl;
   if(master->is_Jaune()){
   // BF droite sur le gobelet 
-  serialPrintf(master->getPortSerie(),"S5 -1150 243 180 \n");
+  serialPrintf(master->getPortSerie(),"S5 -1050 243 180 \n");
   }
   if(master->is_Vert()){
   // BF droite sur le gobelet 
-  serialPrintf(master->getPortSerie(),"S5 1150 243 0 \n");
+  serialPrintf(master->getPortSerie(),"S5 1050 243 0 \n");
   }
 }
 
 // returns the state containing the current
 MAE_MURPHY::AnyState * MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin_State::BF_transitoire_sur_verre_State::_upper(MAE_MURPHY & stm) {
     return &stm._mae_murphy_state._jeu_state._mission_claps_state._chope_du_coin_state;
+}
+
+// to manage the event assFini
+void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin_State::BF_transitoire_sur_verre_State::assFini(MAE_MURPHY & stm) {
+    {
+      stm._set_currentState(stm._mae_murphy_state._jeu_state._mission_claps_state._chope_du_coin_state._bf_droite_sur_le_verre_state);
+#ifdef VERBOSE_STATE_MACHINE
+      puts("DEBUG : current state is now .MAE_MURPHY.Jeu.mission claps.chope du coin.BF droite sur le verre");
+#endif
+      stm._mae_murphy_state._jeu_state._mission_claps_state._chope_du_coin_state._bf_droite_sur_le_verre_state.create(stm);
+    }
 }
 
 MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin_State::setxycap_State::~setxycap_State() {
@@ -5282,11 +5567,11 @@ void MAE_MURPHY::MAE_MURPHY_State::Jeu_State::mission_claps_State::chope_du_coin
   cout<<"coin : BF droite sur stands"<<endl;
   if(master->is_Jaune()){
   // BF droite sur le gobelet 
-  serialPrintf(master->getPortSerie(),"S5 -1200 500 -90 \n");
+  serialPrintf(master->getPortSerie(),"S5 -1180 500 -90 \n");
   }
   if(master->is_Vert()){
   // BF droite sur le gobelet 
-  serialPrintf(master->getPortSerie(),"S5 1200 500 -90 \n");
+  serialPrintf(master->getPortSerie(),"S5 1180 500 -90 \n");
   }
 }
 
