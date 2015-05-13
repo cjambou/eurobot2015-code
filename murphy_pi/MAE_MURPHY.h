@@ -1266,6 +1266,28 @@ class MAE_MURPHY {
 
                 };
                 
+                // implement the state recule encore
+                class recule_encore_State : public AnyState {
+                  public:
+                    virtual ~recule_encore_State();
+
+                    // to manage the event near
+                    virtual void near(MAE_MURPHY & stm);
+
+                    // to manage the event blocage
+                    virtual void blocage(MAE_MURPHY & stm);
+
+                    // to manage the event create
+                    virtual void create(MAE_MURPHY & stm);
+
+                    // perform the 'entry behavior'
+                    void _doentry(MAE_MURPHY & stm);
+
+                    // returns the state containing the current
+                    virtual AnyState * _upper(MAE_MURPHY & stm);
+
+                };
+                
                 // implement the state BF cap vers la zone adverse
                 class BF_cap_vers_la_zone_adverse_State : public AnyState {
                   public:
@@ -1293,9 +1315,6 @@ class MAE_MURPHY {
                   public:
                     virtual ~rembale_les_pinces_State();
 
-                    // to manage the event pince_range
-                    virtual void pince_range(MAE_MURPHY & stm);
-
                     // to manage the event create
                     virtual void create(MAE_MURPHY & stm);
 
@@ -1307,6 +1326,8 @@ class MAE_MURPHY {
 
                     // returns the state containing the current
                     virtual AnyState * _upper(MAE_MURPHY & stm);
+
+                    virtual bool _completion(MAE_MURPHY & stm);
 
                 };
                 
@@ -1429,6 +1450,9 @@ class MAE_MURPHY {
 
                 // returns the state containing the current
                 virtual AnyState * _upper(MAE_MURPHY & stm);
+
+                // memorize the instance of the state recule encore, internal
+                recule_encore_State _recule_encore_state;
 
             };
             
@@ -4368,6 +4392,7 @@ class MAE_MURPHY {
   friend class MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::BF_droite_way_point_3_State;
   friend class MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::enfonce_lestrade_State;
   friend class MAE_MURPHY_State::Jeu_State::mission_rush_zone_centrale_State::degagement_State;
+  friend class MAE_MURPHY_State::Jeu_State::mission_depot_de_tour_zone_depart_State::recule_encore_State;
 };
 // change the current state, internal
 inline void MAE_MURPHY::_set_currentState(MAE_MURPHY::AnyState & st) {

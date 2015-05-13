@@ -71,6 +71,7 @@ bool Mission_Zone_centrale::is_stand_depart_catched()
 void Mission_Zone_centrale::activation_rush_salace()
 {
     rush_salace = true;
+    set_couleur(couleur);
 }
 bool Mission_Zone_centrale::is_rush_salace_on()
 {
@@ -79,4 +80,5 @@ bool Mission_Zone_centrale::is_rush_salace_on()
 void Mission_Zone_centrale::desactivation_rush_salace()
 {
     rush_salace = false;
+    set_couleur(couleur);
 }
