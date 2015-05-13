@@ -1371,6 +1371,9 @@ class MAE_MURPHY {
                     // to manage the event blocage
                     virtual void blocage(MAE_MURPHY & stm);
 
+                    // perform the 'exit behavior'
+                    void _doexit(MAE_MURPHY & stm);
+
                 };
                 
                 // implement the state depot une tour
