@@ -182,7 +182,7 @@ void loop(){
                 Serial.println("# END_GAME");
                 state = END;
                 slave->stop();
-                //io->stop();
+                io->stop();
 
             }
             else

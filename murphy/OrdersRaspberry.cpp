@@ -287,8 +287,8 @@ void OrdersRaspberry::executeinstr()
             break;
 
             case 3:
-                Serial.println("ASS FINI forcee"); // quiite le mode ouverture
-                io->get_Constructeur_pile_gauche()->trigger(TRANS_PILE_ASSERV_FINI);
+                Serial.println("Prise manuelle"); // quiite le mode ouverture
+                io->get_Constructeur_pile_gauche()->trigger(TRANS_PILE_MONTAGE_MANUEL_DANS_PINCE);
             break;
 
             case 4:
@@ -349,8 +349,8 @@ void OrdersRaspberry::executeinstr()
             break;
 
             case 3:
-                Serial.println("ASS FINI forcee"); // quiite le mode ouverture
-                io->get_Constructeur_pile_droite()->trigger(TRANS_PILE_ASSERV_FINI);
+                Serial.println("Prise manuelle"); // quiite le mode ouverture
+                io->get_Constructeur_pile_droite()->trigger(TRANS_PILE_MONTAGE_MANUEL_DANS_PINCE);
             break;
 
             case 4:

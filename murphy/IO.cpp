@@ -1582,8 +1582,13 @@ void Constructeur_pile::trigger(int transition)
                     Serial.println("# ASC_GAUCHE_PINCE_OUVERTE");
                 }
             }
+
             if (transition == TRANS_PILE_PREP_DEPOT){
                 state = ETAT_PILE_DEPOT_DECISION;
+            }
+
+            if (transition == TRANS_PILE_MONTAGE_MANUEL_DANS_PINCE){
+                state = ETAT_PILE_DECISION_MOVE;
             }
             break;
 
@@ -1613,7 +1618,7 @@ void Constructeur_pile::trigger(int transition)
         case ETAT_PILE_ANALYSE   :
             if (transition == TRANS_PILE_TIME_OUT){ //mettre les autre IR et compagnie
                 // si on detecte qqchose dans la pince on le monte, pour incrementer la pile
-                /**
+
                 if(ir_bas_pince.is_on()){
                     // SI COULEUR ok, sinon on re ouvre
                     state = ETAT_PILE_DECISION_MOVE;
@@ -1627,18 +1632,18 @@ void Constructeur_pile::trigger(int transition)
                         Serial.println("# ASC_GAUCHE_BREDOUILLE");
                     }
                 }
-                */ // sinon peut bugger parfois
-                state = ETAT_PILE_DECISION_MOVE;
+                 // sinon peut bugger parfois
+                //state = ETAT_PILE_DECISION_MOVE;
             }
             break;
 
         case ETAT_PILE_DECISION_MOVE   :
             if (transition == TRANS_PILE_TIME_OUT){ //mettre les autre IR et compagnie
                 //INCREMENTATION
-                nombre_element++;
+                //nombre_element++;
                 state = ETAT_PILE_RELAXATION;
                 // ya un pb ici avec le nombre de elelement
-                if(nombre_element >= 4){
+                if(nombre_element >= 3){
                     state = ETAT_PILE_RELACHEMENT;
                 }
             }
@@ -1659,6 +1664,17 @@ void Constructeur_pile::trigger(int transition)
         case ETAT_PILE_DESCENTE   :
             if (transition == TRANS_PILE_ASSERV_FINI){ //mettre les autre IR et compagnie
                 state = ETAT_PILE_SAISIE_PINCE;
+                nombre_element++;
+            }
+            if (transition == TRANS_PILE_TIME_OUT){ //mettre les autre IR et compagnie
+                // Si jamais on bloque a la descente de l'ascenseur// time out a voir
+                state = ETAT_PILE_INITIAL;
+                if(cote_droit){
+                    Serial.println("# ASC_DROITE_BLOCAGE");
+                }
+                else{
+                    Serial.println("# ASC_GAUCHE_BLOCAGE");
+                }
             }
             break;
 
@@ -1670,6 +1686,9 @@ void Constructeur_pile::trigger(int transition)
 
          case ETAT_PILE_SAISIE_MONTE   :
             if (transition == TRANS_PILE_ASSERV_FINI){ //mettre les autre IR et compagnie
+                state = ETAT_PILE_SAISIE_FIN;
+            }
+            if (transition == TRANS_PILE_TIME_OUT){ //mettre les autre IR et compagnie
                 state = ETAT_PILE_SAISIE_FIN;
             }
             break;
@@ -1720,6 +1739,9 @@ void Constructeur_pile::trigger(int transition)
             if (transition == TRANS_PILE_ASSERV_FINI){ //mettre les autre IR et compagnie
                 state = ETAT_PILE_DEPOT_FULL_H_PREP_3;
             }
+            if (transition == TRANS_PILE_TIME_OUT){ //mettre les autre IR et compagnie
+                state = ETAT_PILE_DEPOT_FULL_H_PREP_3;
+            }
             break;
 
         case ETAT_PILE_DEPOT_FULL_H_PREP_3    :
@@ -1730,6 +1752,9 @@ void Constructeur_pile::trigger(int transition)
 
           case ETAT_PILE_DEPOT_FULL_H_PREP_4    :
             if (transition == TRANS_PILE_ASSERV_FINI){ //mettre les autre IR et compagnie
+                state = ETAT_PILE_DEPOT_FULL_H_PRET;
+            }
+            if (transition == TRANS_PILE_TIME_OUT){ //mettre les autre IR et compagnie
                 state = ETAT_PILE_DEPOT_FULL_H_PRET;
             }
             break;
@@ -1757,6 +1782,9 @@ void Constructeur_pile::trigger(int transition)
             if (transition == TRANS_PILE_ASSERV_FINI){ //mettre les autre IR et compagnie
                 state = ETAT_PILE_DEPOT_FULL_REPLIS_2;
             }
+            if (transition == TRANS_PILE_TIME_OUT){ //mettre les autre IR et compagnie
+                state = ETAT_PILE_DEPOT_FULL_REPLIS_2;
+            }
             break;
 
           case ETAT_PILE_DEPOT_FULL_REPLIS_2    :
@@ -1779,6 +1807,9 @@ void Constructeur_pile::trigger(int transition)
 
         case ETAT_PILE_DEPOT_INF_PREP_2    :
             if (transition == TRANS_PILE_ASSERV_FINI){ //mettre les autre IR et compagnie
+                state = ETAT_PILE_DEPOT_FULL_H_PRET;
+            }
+            if (transition == TRANS_PILE_TIME_OUT){ //mettre les autre IR et compagnie
                 state = ETAT_PILE_DEPOT_FULL_H_PRET;
             }
             break;
@@ -1824,7 +1855,7 @@ bool Constructeur_pile::is_time_out()
    return false;
 }
 
-#define TEMPO_TEST_PILE 200
+#define TEMPO_TEST_PILE 150
 
 // fonction d'execution des taches de la MAE
 void Constructeur_pile::in_state_func()
@@ -1847,14 +1878,14 @@ void Constructeur_pile::in_state_func()
             break;
 
         case ETAT_PILE_PRISE   :    // on ferme d'abord la pince interrieur
-            set_time_out(100);
+            set_time_out(50);
             //taclette_EXT.position_fermeture();
             taclette_INT.position_fermeture();
             Serial.println("ETAT_PILE_PRISE  ");
             break;
 
         case ETAT_PILE_PRISE_SEC   :
-            set_time_out(TEMPO_TEST_PILE);
+            set_time_out(50);
             taclette_EXT.position_fermeture();
             //taclette_INT.position_fermeture();
             Serial.println("ETAT_PILE_PRISE_SEC  ");
@@ -1862,7 +1893,7 @@ void Constructeur_pile::in_state_func()
 
 
         case ETAT_PILE_ANALYSE   :
-            set_time_out(50);
+            set_time_out(100);
             Serial.println("ETAT_PILE_ANALYSE  ");
             break;
 
@@ -1872,13 +1903,13 @@ void Constructeur_pile::in_state_func()
             break;
 
          case ETAT_PILE_RELACHEMENT   :
-            set_time_out(TEMPO_TEST_PILE);
+            set_time_out(50);
             pinceur.relachement();
             Serial.println("ETAT_PILE_RELACHEMENT  ");
             break;
 
         case ETAT_PILE_RELAXATION   :
-            set_time_out(TEMPO_TEST_PILE);
+            set_time_out(200);
             pinceur.relachement();
             taclette_EXT.position_degagement();
             //taclette_INT.position_degagement();
@@ -1887,6 +1918,7 @@ void Constructeur_pile::in_state_func()
 
         case ETAT_PILE_DESCENTE   :
             ascenseur.descend();
+            set_time_out(TEMPO_BLOCAGE_ASCENSEUR);
             Serial.println("ETAT_PILE_DESCENTE  ");
             break;
 
@@ -1899,6 +1931,7 @@ void Constructeur_pile::in_state_func()
 
          case ETAT_PILE_SAISIE_MONTE   :
             ascenseur.monte();
+            set_time_out(TEMPO_BLOCAGE_ASCENSEUR);
             Serial.println("ETAT_PILE_SAISIE_MONTE  ");
             break;
 
@@ -1931,6 +1964,7 @@ void Constructeur_pile::in_state_func()
 
         case ETAT_PILE_DEPOT_FULL_H_PREP_2    :
             ascenseur.descend();
+            set_time_out(TEMPO_BLOCAGE_ASCENSEUR);
             Serial.println("ETAT_PILE_DEPOT_FULL_H_PREP_2   ");
             break;
 
@@ -1942,6 +1976,7 @@ void Constructeur_pile::in_state_func()
 
           case ETAT_PILE_DEPOT_FULL_H_PREP_4    :
             ascenseur.estrade();
+            set_time_out(TEMPO_BLOCAGE_ASCENSEUR);
             Serial.println("ETAT_PILE_DEPOT_FULL_H_PREP_4   ");
             break;
 
@@ -1965,6 +2000,7 @@ void Constructeur_pile::in_state_func()
         case ETAT_PILE_DEPOT_FULL_REPLIS_1    :
             pinceur.saisie();
             ascenseur.monte();
+            set_time_out(TEMPO_BLOCAGE_ASCENSEUR);
             Serial.println("ETAT_PILE_DEPOT_FULL_REPLIS_1   ");
             break;
 
@@ -1990,6 +2026,7 @@ void Constructeur_pile::in_state_func()
             else{
                 ascenseur.descend();
             }
+            set_time_out(TEMPO_BLOCAGE_ASCENSEUR);
             Serial.println("ETAT_PILE_DEPOT_INF_PREP_2   ");
             break;
     }
@@ -2099,3 +2136,7 @@ void IO::write_debug()
     //ecrire les tests de capteurs
 }
 
+void IO::stop()
+{
+    // pipo a mettre pour arret des organes... failure
+}

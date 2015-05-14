@@ -373,6 +373,9 @@ class Aspiration_Bras
 #define TRANS_PILE_REPLIS 6
 #define TRANS_PILE_ASSERV_FINI 7
 
+#define TRANS_PILE_MONTAGE_MANUEL_DANS_PINCE 8
+
+
 //etats
 #define ETAT_PILE_INITIAL 0
 #define ETAT_PILE_PREP_SAISIE 1
@@ -387,6 +390,8 @@ class Aspiration_Bras
 #define ETAT_PILE_SAISIE_MONTE 9
 #define ETAT_PILE_SAISIE_FIN 10
 
+
+
 #define ETAT_PILE_DEPOT_DECISION 11
 #define ETAT_PILE_DEPOT_FULL_INIT 12
 #define ETAT_PILE_DEPOT_FULL_H_PREP_1 13
@@ -399,6 +404,8 @@ class Aspiration_Bras
 #define ETAT_PILE_DEPOT_FULL_REPLIS_2 20
 #define ETAT_PILE_DEPOT_INF_PREP_1 21
 #define ETAT_PILE_DEPOT_INF_PREP_2 22
+
+#define TEMPO_BLOCAGE_ASCENSEUR 700
 
 #define SEUIL_IR_BAS 400
 
@@ -479,6 +486,7 @@ class IO
         IO();
         void write_debug();
         void run();
+        void stop();
         void balle_droite_trigger(int transition);
         Elevator_Gobelet* get_Elevator_gobelet();
         //Claps* get_Claps_droite();
