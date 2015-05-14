@@ -123,8 +123,8 @@ void ControlLoop::set_BF(int bf_type_, Coord target_position_){
             //d = dir.norm();
             dir.normalize();
             piddep.setTarget(0.0);  // pk???
-            //pidcap.setTarget(target_position.get_cap());
-            pidcap.setTarget(real_coord.get_cap());
+            pidcap.setTarget(target_position.get_cap());
+            ///pidcap.setTarget(real_coord.get_cap());
 
             break;
 

@@ -233,9 +233,9 @@ void Taclette_INT::position_prise_central()
 /****************************************************
    Taclette EXT
 *****************************************************/
-#define TACLETTE_EXT_FERMETURE_GAUCHE 1441
-#define TACLETTE_EXT_DEGAGEMENT_GAUCHE 2040//1941
-#define TACLETTE_EXT_MOISS_BAT_GAUCHE 2154
+#define TACLETTE_EXT_FERMETURE_GAUCHE 1350
+#define TACLETTE_EXT_DEGAGEMENT_GAUCHE 2000//2040//1941
+#define TACLETTE_EXT_MOISS_BAT_GAUCHE 2200
 
 #define TACLETTE_EXT_FERMETURE_DROITE 1896
 #define TACLETTE_EXT_DEGAGEMENT_DROITE 1249
@@ -758,7 +758,7 @@ void Balle_droite::in_state_func()
 *****************************************************/
 #define PINCEUR_DEPLOYEMENT_TOTAL_GAUCHE 1180
 #define PINCEUR_RELACHEMENT_GAUCHE 1460//1530
-#define PINCEUR_SAISIE_GAUCHE 1720//1800 //1720
+#define PINCEUR_SAISIE_GAUCHE 1800//1720//1800 //1720
 
 #define PINCEUR_DEPLOYEMENT_TOTAL_DROITE 1600
 #define PINCEUR_RELACHEMENT_DROITE 1270
@@ -2035,7 +2035,9 @@ void IO::run()
 
     // injection des balles automatique, sinon on gere ca au master lors du depot... mais demande de checker a la main
     // comme ca si c bon niveau meca ... ce sera judicieux
-    to_be_ejected_droite = balle_droite.est_chargee();
+
+    // a modif si on fait une mission chargee
+    ///to_be_ejected_droite = balle_droite.est_chargee();
 
     if(constructeur_pile_droite.get_nombre_element()>=NOMBRE_MIN_STAND_AVANT_INJECTION && to_be_ejected_droite)
     {
