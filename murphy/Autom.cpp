@@ -156,8 +156,9 @@ void Autom::send_cmd(){
 **/
 void Autom::stop()
 {
-    moteur_droit.writeMicroseconds(MOTEUR_PROPU_DROIT_ARRET);
-    moteur_gauche.writeMicroseconds(MOTEUR_PROPU_GAUCHE_ARRET);
+    get_control()->set_BF(STOP,Coord(0, 0, 0));
+    //moteur_droit.writeMicroseconds(MOTEUR_PROPU_DROIT_ARRET);
+    //moteur_gauche.writeMicroseconds(MOTEUR_PROPU_GAUCHE_ARRET);
     // mettre la fin d'asserv
 }
 
